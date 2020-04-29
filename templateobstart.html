@@ -1,0 +1,20 @@
+<?php
+ob_start();
+
+ENONCE
+
+
+$enonce = ob_get_clean();
+
+ob_start();
+?>
+
+<?php
+$formulaire = ob_get_clean();
+
+
+ob_start();
+
+$showphp = ob_get_clean();
+
+require('../template.html');

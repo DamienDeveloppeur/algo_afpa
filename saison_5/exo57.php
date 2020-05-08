@@ -8,6 +8,53 @@ NB : la factorielle de 8, notée 8 !, <br> vaut
 <?php
 
 $enonce = ob_get_clean();
+ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable nbr et somme en numérique<br>
+DEBUT<br>
+somme = 1;<br>
+index = 1;<br>
+pour index != nbr + 1<br>
+somme = somme * index;<br>
+    SI index == nbr <br>
+    ALORS <br>
+    Ecrire somme <br>
+    FIN DU POUR<br>
+FIN<br>
+
+  </p>
+</div>
+<?php
+$pseudocode = ob_get_clean();
+
+
+ob_start();
+?>
+<form>
+
+<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez un chiffre</label>
+  <input type="number" id="FJS57" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+
+
+  <input  onclick="exo57()" value="Envoyer" class="nes-btn is-error"></input>
+  </div>
+</form>
+
+<br>
+<section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div id ="AJS57" class="nes-balloon from-left">
+        
+      </div>
+    </section>
+    <?php
+$JS = ob_get_clean();
+
 
 ob_start();
 ?>

@@ -18,8 +18,40 @@ Le programme demandera donc l’âge et le sexe du Toon,<br> et se prononcera do
 $enonce = ob_get_clean();
 
 ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable sexe et age en numérique 
 
+DEBUT
+ecrire indiquez votre sexe 
+lire sexe1
+ecrire indiquez votre age 
+lire age
+    SI sexe  == "h" ou "H" 
+    ALORS sexe  = 1
+    SINON SI sexe == "f" ou "F"
+    ALORS sexe = 2
+    FIN DU SI 
 
+    SI sexe == 1 
+        SI age >= 20
+          ecrire "Imposable"
+        SINON 
+          ecrire non-imposable 
+
+    SINON SI sexe == 2
+        SI age >= 18 et <=35 
+        ecrire imposable 
+        SINON 
+        ecrire non-imposable
+    FIN DU SI
+FIN
+
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();

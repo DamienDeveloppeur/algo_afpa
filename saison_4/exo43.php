@@ -12,42 +12,47 @@ NB : là encore, on suppose que l'utilisateur entre une date valide.
 $enonce = ob_get_clean();
 ob_start();
 ?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable heure, minutes et secondes en numérique<br>
+DEBUT<br>
+ecrire entrez une heure <br>
+lire heure <br>
+ecrire entrez les minutes <br>
+lire minute<br>
+ecrire entrez les secondes<br>
+lire secondes<br>
 
+    SI minute < 59 et heure < 24 et secondes < 59<br>
+    ALORS secondes = secondes +1<br>
+    ecrire "dans une minute il sera " heure + "H" + minute + "min" + seconde + "sec"<br>
+
+    SINON SI heure < 23 et minute < 59 et secondes == 59<br>
+    ALORS minutes += 1<br>
+          secondes = 0<br>
+          ecrire "dans une minute il sera " heure + "H" + minute + "min" + seconde + "sec"<br>
+
+    SINON SI  heure < 23 et minute ==59 et secondes == 59<br>
+                secondes += 1<br>
+                minute += 1<br>
+                ecrire "dans une minute il sera " heure + "H" + minute + "min" + seconde + "sec"<br>
+
+    SINON SI secondes ==59 et minutes == 59 et heure == 23<br>
+            ALORS secondes = 0<br>
+                  minute = 0<br>
+                  heure =0<br>
+                  ecrire "dans une minute il sera " heure + "H" + minute + "min" + seconde + "sec"<br>
+    SINON "entrez une heure valide"<br>
+    FIN DU SI<br>
+FIN<br>
+
+  </p>
+</div>
 <?php
 $pseudocode = ob_get_clean();
 
-ob_start();
-?>
-<form method="POST" action="exo43.php">
-<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
-<label for="dark_field" style="color:#fff;">Entrez les heure </label>
-  <input type="number" id="FJS431" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
-</div>
 
-<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
-<label for="dark_field" style="color:#fff;">Entrez les minutes </label>
-  <input type="number" id="FJS432" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
-</div>
-
-<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
-<label for="dark_field" style="color:#fff;">Entrez les secondes </label>
-  <input type="number" id="FJS433" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
-</div>
-
-  <input  onclick="exo43()" value="Envoyer" class="nes-btn is-error"></input>
-</form>
-</div>
-<br>
-<section class="message -left">
-      <i class="nes-bcrikko"></i>
-      <!-- Balloon -->
-      <div id ="AJS43" class="nes-balloon from-left">
-        
-      </div>
-    </section>
-
-    <?php
-$JS = ob_start();
 ob_start();
 
 ?>
@@ -104,6 +109,36 @@ if (isset($_POST["heure"]) && isset($_POST["minutes"]) && isset($_POST["secondes
 
 }
 $formulaire = ob_get_clean();
+ob_start();
+?>
+<form >
+<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez les heure </label>
+  <input type="number" id="FJS431" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+</div>
 
-require('../template.html');
+<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez les minutes </label>
+  <input type="number" id="FJS432" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+</div>
+
+<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez les secondes </label>
+  <input type="number" id="FJS433" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+</div>
+
+  <input  onclick="exo43()" value="Envoyer" class="nes-btn is-error"></input>
+</form>
+
+<section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div id ="AJS43" class="nes-balloon from-left">
+        
+      </div>
+    </section>
+
+    <?php
+$JS = ob_get_clean();
+require '../template.html';
 ?>

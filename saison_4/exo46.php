@@ -17,7 +17,29 @@ ob_start();
 $enonce = ob_get_clean();
 ob_start();
 ?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable score1, score2, score3 et score4 en numérique 
+variable nom1, nom2, nom3 et nom4 en string 
+DEBUT
+  ecrire entrez les noms et les scores des candidats 
+  lire score1; score2, score3 et score4 
+  lire nom1, nom2, nom3 et nom4
 
+  SI score1 > 50 
+    ALORS candidat élu à la majorité absolue 
+  SINON SI score1 >= 12.5
+      SI score1 > score2 et score1 > score3 et score1 > score4
+      ecrire candidat en ballotage favorable 
+      SINON SI candidat en balotage défavorable 
+  SINON 
+      ecrire candidat battu 
+  FIN DU SI
+FIN
+
+  </p>
+</div>
 <?php
 $pseudocode = ob_get_clean();
 

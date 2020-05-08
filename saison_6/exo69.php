@@ -8,40 +8,43 @@ Ecrivez un algorithme calculant la somme des valeurs d’un tableau <br>
 $enonce = ob_get_clean();
 
 ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
 
+  variable array => tableau en numérique [5,6,1,9,3,4,5,10]<br>
+  variable somme en numérique <br>
+DEBUT<br>
+POUR index  0 à taille du tableau<br>
+
+    somme = somme + arrayExemple à l'index de i <br>
+ 
+FIN DU POUR<br>
+ecrire somme<br>
+FIN<br>
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
-
-var arrayP = [];
-var arrayN = [];
-var somme = 0;
-var moy = 0;
-
-var nbr=prompt("Entrer le nombre de valeur souhaité", "");
-var nbr1 = parseInt(nbr);
-
-for (i =0; i < nbr1; i++)
-{
-  if (nbr1 >= 0)
-  {
-    arrayP.push(nbr1);
-  }
-   else
-   {
-    arrayN.push(nbr1);
-   }
     
+      <div class="nes-field is-inline">
 
- 
-}
-document.write(arrayP);
-document.write(arrayN);
+<input  onclick="exo69()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-      </script>
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS69" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 <?php
 $JS = ob_get_clean();
 

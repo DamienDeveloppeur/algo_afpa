@@ -1,31 +1,62 @@
 <?php
 ob_start();
 ?>
-<h1>  </h1>
+<div class="nes-container is-dark with-title">
+  <p class="title">Exercice 6.3</p>
+  <p>Ecrire un algorithme qui déclare un <br>
+    tableau de 9 notes, dont on fait ensuite<br>
+     saisir les valeurs par l’utilisateur.<br>
+    </p>
+</div>
 
  <?php 
 $enonce = ob_get_clean();
 
-ob_start();
-
-$pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable array => tableau en numérique et nbr en numérique<br>
+DEBUT<br>
+POUR index == 0 à index == 8<br>
+    ecrire "entrez une note"<br>
+    lire nbr <br>
+    ajouter nbr à array<br>
+FIN DU POUR<br>
+ecrire array<br>
+FIN<br>
 
-var array = [];
-for (i =0; i < 9; i++)
-{
-   var nbr=prompt("Entrer une note", "");
-   var nbr1 = parseInt(nbr);
-    array.push(nbr1);
+  </p>
+</div>
+<?php
+$pseudocode = ob_get_clean();
 
-}
 
-document.write(array);
+ob_start();
+?>
 
-      </script>
+<form>
+
+<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+<!-- <label for="dark_field" style="color:#fff;">Entrez un chiffre</label>
+  <input type="number" id="FJS63" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+-->
+
+  <input  onclick="exo63()" value="Testez le programme !" class="nes-btn is-error"></input>
+  </div>
+</form>
+
+<br>
+<section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div id ="AJS63" class="nes-balloon from-left">
+        
+      </div>
+    </section>
+
 <?php
 $JS = ob_get_clean();
 

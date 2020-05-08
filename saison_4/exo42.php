@@ -11,6 +11,39 @@ NB : on suppose que l'utilisateur entre une heure valide. Pas besoin donc de la 
 </div>
 <?php
 $enonce = ob_get_clean();
+
+ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable heure et minute en numérique<br>
+DEBUT<br>
+ecrire entrez une heure <br>
+lire heure <br>
+ecrire entrez les minutes <br>
+lire minute <br>
+    SI minute < 59 et heure < 24 <br>
+    ALORS minute = minute +1<br>
+    ecrire "dans une minute il sera " heure + "H" + minute<br>
+
+    SINON SI heure < 23 et minute == 59 <br>
+    ALORS heure += 1<br>
+          minute = 0<br>
+          ecrire "dans une minute il sera " heure + "H" + minute<br>
+    SINON SI  heure ==23 et minute ==59<br>
+                heure = 0<br>
+                minute = 0<br>
+                ecrire "dans une minute il sera " heure + "H" + minute<br>
+    SINON "entrez une heure valide"<br>
+    FIN DU SI<br>
+FIN<br>
+
+  </p>
+</div>
+<?php
+$pseudocode = ob_get_clean();
+
 ob_start();
 ?>
 <form method="POST" action="exo42.php">
@@ -26,7 +59,7 @@ ob_start();
 
   <input  onclick="exo42()" value="Envoyer" class="nes-btn is-error"></input>
 </form>
-</div>
+
 <br>
 <section class="message -left">
       <i class="nes-bcrikko"></i>
@@ -38,6 +71,7 @@ ob_start();
     
     <?php
 $JS = ob_get_clean();
+
 ob_start();
 ?>
 <form  method="POST" action="exo42.php">  

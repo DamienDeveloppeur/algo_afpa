@@ -14,6 +14,14 @@ $enonce = ob_get_clean();
 
 
 ob_start();
+?>
+
+<div class="nes-container is-dark with-title">
+  <p class="title">Container.is-dark</p>
+  <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+</div>
+
+<?php
 $pseudocode = ob_get_clean();
 
 
@@ -30,9 +38,11 @@ document.write("Double = " +Double);
       </script>
 <?php
 $JS = ob_get_clean();
+ob_start();
+$formulaire = ob_get_clean();
 
 
-require 'exo_1.html';
+require '../template.html';
 ?>
 
 

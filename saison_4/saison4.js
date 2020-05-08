@@ -37,7 +37,7 @@ function exo42()
 
     if (minute < 59 && heure < 24)
     {
-        minute = minute +  1;
+        minute +=  1;
         document.getElementById("AJS42").innerHTML = "Dans une minute il sera : " + heure + "H "+ minute;
        
     }

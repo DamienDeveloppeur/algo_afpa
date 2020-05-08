@@ -3,7 +3,16 @@ ob_start();
 ?>
 <h1> Exercice 6.4 </h1>
 Que produit l’algorithme suivant ? <br>
-Tableau Nb(5) en Entier <br>
+
+ <?php 
+$enonce = ob_get_clean();
+
+ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+  Tableau Nb(5) en Entier <br>
 Variable i en Entier <br>
 Début<br>
  Pour i ← 0 à 5 <br>
@@ -14,26 +23,32 @@ Début<br>
     i suivant <br>
     Fin<br>
 Peut-on simplifier cet algorithme avec le même résultat ?<br><br>
- <?php 
-$enonce = ob_get_clean();
 
-ob_start();
-
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
-    var nb = [];
-for (i=0; i< 5; i++)
-{
-  nb.push() = i * i;
+    
+
+    <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+
+<input  onclick="exo64()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-}
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS64" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 
-
-      </script>
+     
 <?php
 $JS = ob_get_clean();
 

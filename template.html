@@ -16,11 +16,18 @@
 
     <!--main js-->
     <script src="../js/jquery-3.4.1.min.js"></script>
-
-    
+    <script src="../saison_2/saison2.js"></script>
+    <script src="../saison_3/saison3.js"></script>
     <script src="../saison_4/saison4.js"></script>
-
-
+    <script src="../saison_5/saison5.js"></script>
+    <script src="../saison_6/saison6.js"></script>
+    <script src="../saison_7/saison7.js"></script>
+    <script src="../saison_8/saison8.js"></script>
+    <script src="../saison_9/saison9.js"></script>
+    <script src="../saison_10/saison10.js"></script>
+      
+    
+    <script src="../saison_3/saison3jq.js"></script>
 
 
 
@@ -34,7 +41,9 @@
 <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 <!-- core style only -->
 <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+
 <script type="text/javascript" src="./commun/main.js"></script>
 <script type="text/javascript" src="../commun/main.js"></script>
 
@@ -71,20 +80,44 @@
                 
                 <div class="enonce">
                     <?= $enonce ?>
+               
                 </div>
                 <div class="pseudocode">
-                    
+                    <?= $pseudocode ?>
                 </div>
             </div>
 
-            <div class="execution">
-                <div class="button">
-                    <button type="button" class="btn btn-dark" onclick="displayblockphp()">PHP</button>
+             <div id ="showcodebloc">
+                <a class="nes-btn" href="#">Afficher code</a>
+                <div id="buttonshow">
                     
                     
-                    <button type="button" class="btn btn-dark" onclick="displayblockjs()">JS</button>
-                    <button type="button" class="btn btn-dark" onclick="displayblockjquery()">JQUERRY</button>
+                    <button type="button" class="nes-btn is-primary" onclick="displayblockshowphp()">PHP</button>                   
+
+                    <button type="button" class="nes-btn is-warning" onclick="displayblockshowjs()">JS</button>
+
+                    <button type="button" class="nes-btn is-success" onclick="displayblockshowjquery()">JQUERRY</button>
                 </div>
+                <div id="showcode">
+                    <div id="showJS">
+
+                    </div>
+                    <div id="showjquery">
+
+                    </div>
+                    <div id="showphp">
+                        <?= $showphp ?>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div id="execution">
+                <a class="nes-btn" href="#">Tester le code</a>
+              
+
             <div id="contenue">
                 <div id="JS">
                     <?= $JS ?>
@@ -93,13 +126,7 @@
 
                 </div>
                      <div id="php">
-                    <div id="codephp">
-                     <!--   <?= $showphp ?> -->  
-                    </div>
-                    <div id="formphp">
                       <?= $formulaire ?> 
-                      
-                    </div>
                      </div>
                 </div>
             </div>

@@ -48,9 +48,14 @@ ob_start();
 
 <?php
 $JS = ob_get_clean();
+ob_start();
+
+$jquerry = ob_get_clean();
+ob_start();
+$formulaire = ob_get_clean();
 
 
-require 'exo_1.html';
+include '../template.html';
 ?>
 
 

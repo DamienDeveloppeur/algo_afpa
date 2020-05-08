@@ -8,34 +8,44 @@ Toutes les valeurs doivent être ensuite augmentées de 1, et le nouveau tableau
 $enonce = ob_get_clean();
 
 ob_start();
-
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+  variable array1 = [];<br>
+  variable nbr1 et nbr2 en numérique<br>
+DEBUT<br>
+ecrire "entrez le nombre de valeur souhaitée"<br>
+lire nbr1 <br>
+    POUR index  0 à nbr1<br>
+        ecrire "entrez un nombre qui sera incrémenté et ajoutez au tableau"<br>
+        lire nbr3<br>
+        variable nbr4 = nbr3 +1<br>
+       ajoutez nbr4 au tableau<br>
+    FIN DU POUR<br>
+ecrire array<br>
+FIN<br>
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
+    <div class="nes-field is-inline">
+
+<input  onclick="exo612()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-var array = [];
-
-
-var nbr=prompt("Entrer le nombre de valeur souhaité", "");
-var nbr1 = parseInt(nbr);
-
-for (i =0; i < nbr1; i++)
-{
-    var nbr2=prompt("Entrer un nombre à mettre dans le TABLO", "");
-    var nbr3 = parseInt(nbr2);
-    var nbr4 = nbr3 + 1;
- 
-    array.push(nbr4);
- 
-}
-
-document.write(array);
-
-
-      </script>
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS612" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 <?php
 $JS = ob_get_clean();
 

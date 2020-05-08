@@ -1,38 +1,51 @@
 <?php
 ob_start();
 ?>
-<h1>  </h1>
-
- <?php 
+<div class="nes-container is-dark with-title">
+  <p class="title">Container.is-dark</p>
+  <p>Good morning. Thou hast had a good night's sleep, I hope.</p>
+</div>
+<?php
 $enonce = ob_get_clean();
 
 ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
 
+  variable array => tableau en numérique, nbr, somme et moy en numérique<br>
+DEBUT<br>
+POUR index  0 à index 8<br>
+    ecrire "entrez une note"<br>
+    lire nbr <br>
+    ajouter nbr à array<br>
+    somme = somme + nbr 
+    moy = somme / array.lenght
+FIN DU POUR<br>
+ecrire somme et moy<br>
+FIN<br>
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
+<div class="nes-field is-inline">
 
-var array = [];
-var somme = 0;
-var moy = 0;
-
-for (i =0; i < 9; i++)
-{
-   var nbr=prompt("Entrer une note", "");
-   var nbr1 = parseInt(nbr);
-    array.push(nbr1);
-
-   somme = somme + nbr1;
-    moy = somme / array.length;
-}
+<input  onclick="exo67()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-document.write(array + "<br>");
-document.write(moy);
-
-      </script>
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS67" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 <?php
 $JS = ob_get_clean();
 

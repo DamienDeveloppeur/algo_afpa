@@ -2,31 +2,32 @@
 	ob_start(); 
 ?>
 <h1> Exercice 4.4 </h1>
-    Un magasin de reprographie facture 0,10 E les dix premières photocopies,<br>
+    Un magasin de reprographie facture 0,10 E les dix premières photocopies, <br>
    
     0,09 E les vingt suivantes et 0,08 E au-delà.<br>
      Ecrivez un algorithme qui demande à l’utilisateur le nombre de photocopies effectuées et qui affiche la facture correspondante.<br>
     <?php
 $enonce = ob_get_clean();
-ob_start(); 
+ob_start();
 ?>
-variable Tutu et Toto  en numerique<br>
-	variable Tata en alphanumerique<br>
-	DEBUT<br>
-		ecrire " quelle nombre vaut Tutu : "<br>
-		lire Tutu ;<br>
-		ecrire " quelle nombre vaut Toto : "<br>
-		lire Toto ;<br>
-		ecrire " quelle mot vaut Tata : "<br>
-		lire Tata;<br>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable nbr en numérique
+DEBUT
+    ecrire entrez le nombre de photocopie
+    lire nbr 
+        SI nbr <=10
+        ALORS ecrire "Tarif : " + (nbr * 0.10) + " euros"
+        SINON SI nbr <=30 et nbr >10 
+        ALORS ecrire "Tarif : " + ((0.10 * 10) + (nbr - 10) * 0.09)+ " euros"
+        SINON SI nbr > 30
+        ALORS ecrire "Tarif : " + ((0.10 * 10) + (0.09 * 20) + (nbr - 30) * 0.08)+ " euros"
+FIN
 
-		SI ( Tutu <= ( Toto +4 ) ET (Tata.toUpperCase() != "OK")) ALORS<br>
-
-			Tutu-- ;<br>
-			ecrire "tutu vaut maintenant : " + Tutu;<br>
-		
-        SINON<br>
-        <?php
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 ob_start();
 ?>
@@ -70,7 +71,7 @@ ob_start();
 
   <input  onclick="exo44()" value="Envoyer" class="nes-btn is-error"></input>
 </form>
-</div>
+
 <br>
 <section class="message -left">
       <i class="nes-bcrikko"></i>

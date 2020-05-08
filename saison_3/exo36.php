@@ -25,6 +25,8 @@ ob_start();
 <label for="dark_field" style="color:#fff;">Entrez un age </label>
   <input type="text" id="FJS336" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
 </div>
+
+
   <input  onclick="exo36()" value="Envoyer" class="nes-btn is-error"></input>
 </form>
 </div>
@@ -39,42 +41,12 @@ ob_start();
      
 <?php
 $JS = ob_get_clean();
+ob_start();
+
+$jquerry = ob_get_clean();
+ob_start();
+$formulaire = ob_get_clean();
 
 
-require 'exo_1.html';
+include '../template.html';
 ?>
-
-
-
-
-
-
-
-<!-- 
-if (age < 10)
-{
-    if (age < 6)
-    {
-        console.log("trop jeune");
-    }
-    else if (age >=6 || age < 8)
-    {
-        console.log("poussin");
-    }
-    else 
-    {
-        console.log("pupille");
-    }
-}
-else if (age >= 10)
-{
-    if (age > 11)
-    {
-        console.log("cadet");
-    }
-    else 
-    {
-        console.log("minime");
-    }
-}
--->

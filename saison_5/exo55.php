@@ -3,11 +3,56 @@ ob_start();
 ?>
 <h1>Exercice 5.5</h1>
 Ecrire un algorithme qui demande un nombre de départ, et qui ensuite <br>
-écrit la table de multiplication de ce nombre, présentée comme suit (cas où l'utilisateur entre le nombre 7) :<br>
+écrit la table de multiplication de ce nombre, présentée comme suit<br> (cas où l'utilisateur entre le nombre 7) :<br>
 <?php
 
 $enonce = ob_get_clean();
 
+ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable nombre et solution en numérique<br>
+DEBUT<br>
+Ecrire "entrez un nombre"<br>
+Lire nbr;<br>
+index = 0;<br>
+
+POUR index < 11<br>
+<br>
+ecrire nbr + "*" + index + "="+ nbr*index<br>
+Fin de POUR<br>
+FIN<br>
+
+  </p>
+</div>
+<?php
+$pseudocode = ob_get_clean();
+
+ob_start();
+?>
+<form>
+
+<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez un chiffre</label>
+  <input type="number" id="FJS55" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+
+
+  <input  onclick="exo55()" value="Envoyer" class="nes-btn is-error"></input>
+  </div>
+</form>
+
+<br>
+<section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div id ="AJS55" class="nes-balloon from-left">
+        
+      </div>
+    </section>
+    <?php
+$JS = ob_get_clean();
 ob_start();
 ?>
 <form method="POST" action="exo55.php">  

@@ -36,21 +36,19 @@ FIN
 $pseudocode = ob_get_clean();
 ob_start();
 ?>
-<script>
-  
-var string1 = "belle marquise ";
-var string2 = "vos beaux yeux ";
-var string3 = "me font ";
-var string4 = "mourir d'amour ";
+<input  onclick="exo24()" value="Envoyer" class="nes-btn is-error"></input>
+<section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div id ="AJS24" class="nes-balloon from-left">
+        
+      </div>
+    </section>
 
-document.write(string2 + string1 + string3 + string4 + "<br>");
-document.write(string2 + string3 + string4 + string1 + "<br>");
-document.write(string1 + string2 + string4 + string3 + "<br>");
-document.write(string4 + string3 + string2 + string1 + "<br>");
-
-
-     </script>
 <?php
 $JS = ob_get_clean();
+ob_start();
+$formulaire = ob_get_clean();
 
-require('exo_1.html'); ?>
+
+include '../template.html';

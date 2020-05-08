@@ -26,21 +26,30 @@ $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-<form>
-<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+<form method="POST" action="exo31.php">
+<div class="nes-field is-inline">
 <label for="dark_field" style="color:#fff;">Entrez un nombre =/= 0  </label>
-  <input type="text" id="FJS331" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+
+  <input type="text" id="FJS331" class="nes-input is-dark"  name="PAHT"/>
+  </div>
 
 
-  <input  onclick="exo31()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo31()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo31jq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
 </form>
-</div>
+
 <br>
 <section class="message -left">
       <i class="nes-bcrikko"></i>
       <!-- Balloon -->
       <div id ="AJS31" class="nes-balloon from-left">
-        
+		<?php
+		if (isset($_POST["PAHT"]))
+		{
+			echo $_POST["PAHT"];
+		}
+		?>
       </div>
     </section>
 
@@ -49,9 +58,15 @@ ob_start();
 
 <?php
 $JS = ob_get_clean();
+ob_start();
+
+$jquerry = ob_get_clean();
+ob_start();
+
+$formulaire = ob_get_clean();
 
 
-require 'exo_1.html';
+include '../template.html';
 ?>
 
 

@@ -8,33 +8,46 @@ Le nouveau tableau sera la somme des éléments des deux tableaux de départ. <b
 $enonce = ob_get_clean();
 
 ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
 
+  variable array1 => tableau en numérique [4,8,7,9,1,5,4,6]<br>
+  variable array2 => tableau en numérique [7,6,5,2,1,3,7,4]<br>
+  variable array3 = [];<br>
+    variable nbr1 et nbr 2 en numérique<br>
+
+DEBUT<br>
+    POUR index  0 à taille du tableau array1<br>
+        variable nbr1 = array1 à l'index de i <br>
+        variable nbr2 = array1 à l'index de i <br>
+        array3 = (nbr1 + nbr2) <br>
+
+FIN DU POUR<br>
+ecrire array3<br>
+FIN<br>
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
+       <div class="nes-field is-inline">
 
-var array1 = [4,8,7,9,1,5,4,6];
-var array2 = [7,6,5,2,1,3,7,4];
-var array3 = [];
-
-
-for (i =0; i < 8; i++)
-{
-   
-    var nbr1 = array1[i];
-    var nbr2 = array2[i];
-    array3.push(nbr1 + nbr2);
- 
-}
+<input  onclick="exo610()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-document.write(array3);
-
-
-
-      </script>
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS610" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 <?php
 $JS = ob_get_clean();
 

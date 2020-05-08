@@ -10,38 +10,32 @@ grande valeur du tableau dans un second temps. <br>
 $enonce = ob_get_clean();
 
 ob_start();
-
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+ PAS sur
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
+    <div class="nes-field is-inline">
 
-var nombreDonneeSaisie1 = prompt("Entrer le nombre de donnee que vous souhaitez ?", "");
-var nombreDonneeSaisie = parseInt(nombreDonneeSaisie1);
-var array1 = [];
-
+<input  onclick="exo613()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-for (i = 0; i < nombreDonneeSaisie; i++ )
-
-    {
-        var nbr1 = prompt("Entrer le nombre de donnee que vous souhaitez ?", "");
-        var nombreDansLarray = parseInt(nbr1);
-        array1.push(nombreDansLarray);
- 
-    }
-
- var max =  Math.max.apply(Math, array1);
-   document.write("La valeur maximale est :" + max + "<br>");
-var position = array1.indexOf(max);
-document.write(position);
-
-/*
-document.write(nombreMax);
-*/
-
-      </script>
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS613" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 <?php
 $JS = ob_get_clean();
 

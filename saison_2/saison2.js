@@ -8,7 +8,7 @@ var solution = nbr*nbr;
 document.getElementById("AJS22").innerHTML= "le carre de " + nbr + " est : " + solution;
 }
 
-function exo22()
+function exo23()
 {
 
    
@@ -33,3 +33,17 @@ let TauxDeTva = parseInt(TauxDeTva1);
 
 }
 
+function exo24()
+{
+
+  var string1 = "belle marquise ";
+  var string2 = "vos beaux yeux ";
+  var string3 = "me font ";
+  var string4 = "mourir d'amour ";
+  
+  document.getElementById("AJS24").innerHTML = string2 + string1 + string3 + string4 + "<br>" +
+  string2 + string3 + string4 + string1 + "<br>" + 
+   string1 + string2 + string4 + string3 + "<br>" +
+   string4 + string3 + string2 + string1 + "<br>";
+
+}

@@ -20,7 +20,18 @@ ob_start();
 $enonce = ob_get_clean();
 
 ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
 
+DEBUT
+
+FIN
+
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();

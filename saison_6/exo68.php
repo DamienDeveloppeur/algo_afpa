@@ -10,44 +10,45 @@ Il effectuera ensuite cette saisie. Enfin, une fois la saisie terminée,<br>
  <?php 
 $enonce = ob_get_clean();
 
-ob_start();
 
+ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+
+  variable array => tableau en numérique, nbr, somme et moy en numérique<br>
+DEBUT<br>
+POUR index  0 à index 8<br>
+    ecrire "entrez une note"<br>
+    lire nbr <br>
+    ajouter nbr à array<br>
+    somme = somme + nbr 
+    moy = somme / array.lenght
+FIN DU POUR<br>
+ecrire somme et moy<br>
+FIN<br>
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
+ <div class="nes-field is-inline">
 
-var arrayP = [];
-var arrayN = [];
-var somme = 0;
-var moy = 0;
-
-var nbr=prompt("Entrer le nombre de valeur souhaité", "");
-var nbr1 = parseInt(nbr);
-
-for (i =0; i < nbr1; i++)
-{
-    var nbr2=prompt("Entrer le nombre de valeur souhaité", "");
-var nbr3 = parseInt(nbr2);
-
-  if (nbr3 >= 0)
-  {
-    arrayP.push(nbr3);
-  }
-   else
-   {
-    arrayN.push(nbr3);
-   }
-    
-
- 
-}
-document.write("Il y a "+ arrayP.length+"valeur positives, voici la liste :"+ arrayP +"<br>");
-document.write("Il y a "+ arrayN.length+"valeur négatives, voici la liste :" + arrayN + "<br>");
+<input  onclick="exo68()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-      </script>
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS68" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 <?php
 $JS = ob_get_clean();
 

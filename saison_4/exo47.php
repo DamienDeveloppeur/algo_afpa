@@ -33,6 +33,53 @@ Ecrire l'algorithme permettant de saisir les données nécessaires (sans contrô
 </div>
 <?php
 $enonce = ob_get_clean();
+
+ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
+variable compteurPoint, age, titulairePermisTemps, nbrAccident et anciennete en numérique 
+
+DEBUT
+    ecrire indiquez l'age, depuis combien d'année
+     vous êtes titulaire du permis, 
+     le nombre d'accident resposnable et l'anciennete
+    lire age, TitulairePermisTemps, nbrAccident et anciennete 
+
+        SI age > 25
+            compteurPoint += 1
+        SI TitulairePermisTemps > 2
+             compteurPoint += 1
+        SI nbrAccident == 1
+            compteurPoint += 1
+        SINON SI nbrAccident == 2
+            compteurPoint -= 1
+        SINON SI nbrAccident == 3
+            compteurPoint -= 1
+        SI anciennete > 5
+            compteurPoint += 1
+        FIN DU SI 
+
+        SI compteurPoint == 4
+            ecrire tarif bleue
+        SI compteurPoint == 3
+            ecrire tarif vert
+        SI compteurPoint == 2
+            ecrire tarif orange
+        SI compteurPoint == 1
+            ecrire tarif rouge 
+        SI compteurPoint < 1
+            ecrire refusé 
+        FIN DU SI
+
+FIN
+
+  </p>
+</div>
+<?php
+$pseudocode = ob_get_clean();
+ob_start();
 ?>
 <form method="POST" action="exo47.php">
 
@@ -169,13 +216,13 @@ ob_start();
 
 <div class="nes-field"style="background-color:#212529; padding: 1rem;">
   <label for="name_field">Ancienneté ?</label>
-  <input type="text" id="FJS474" class="nes-input">
+  <input type="text" id="FJS47" class="nes-input">
 </div>
 <br><br><br>
 
 <input  onclick="exo47()" value="Envoyer" class="nes-btn is-error"></input>
 </form>
-</div>
+
 <br>
 <section class="message -left">
    <i class="nes-bcrikko"></i>

@@ -10,7 +10,7 @@
 </div>
 <?php
 $enonce = ob_get_clean();
-/*
+
 ob_start();
  ?>
 
@@ -52,7 +52,7 @@ ob_start();
         echo "Tu as dépensé : ".  $valeurPanier . "Euros pour ". $nbrarticle . " article de basse facture venant de chine";
     }
 $formulaire = ob_get_clean(); 
-*/
+
 ob_start();
 ?>
 <div class="nes-container is-dark with-title">
@@ -74,17 +74,18 @@ ob_start();
 <form>
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
   <!-- <label for="dark_field" style="color:#fff;">Entrez le prix de l'article </label> -->
-  <input type="text" id="FJS231" class="nes-input is-dark"  name="PAHT" placeholder="Entrez le prix de l'article"/> <br><br><br>
+  <input type="text" id="FJS231" class="nes-input is-dark"  name="PAHT" placeholder="prix de l'article"/> <br><br><br>
 
  <!-- <label for="dark_field" style="color:#fff;">Entrez le nombre d'article</label> -->
-  <input type="text" id="FJS232" class="nes-input is-dark"  name="nbrarticle" placeholder="Entrez le nombre d'article"/> <br>
+  <input type="text" id="FJS232" class="nes-input is-dark"  name="nbrarticle" placeholder="nombre d'article"/> <br>
  <!-- <label for="dark_field" style="color:#fff;">Entrez le taux de TVA</label> -->
-  <input type="text" id="FJS233" class="nes-input is-dark"  name="test" placeholder="Entrez le taux de TVA"/> <br>
+  <input type="text" id="FJS233" class="nes-input is-dark"  name="test" placeholder="taux de TVA"/> <br>
 
-  <input  onclick="exo22()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo23()" value="Envoyer" class="nes-btn is-error"></input>
+  </div>
+
 </form>
-</div>
-<br>
+
 <section class="message -left">
       <i class="nes-bcrikko"></i>
       <!-- Balloon -->
@@ -96,5 +97,8 @@ ob_start();
 
 <?php
 $JS = ob_get_clean();
+ob_start();
+$formulaire = ob_get_clean();
 
-require('exo_1.html'); ?>
+
+include '../template.html';

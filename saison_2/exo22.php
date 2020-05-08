@@ -24,16 +24,16 @@ $pseudocode = ob_get_clean();
  ob_start();
  ?>
  
-<button type="button" class="nes-btn is-success" onclick="calculerCarre()">Testez le programme !</button>
-
 <form id="F22" >
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
   <label for="dark_field" style="color:#fff;">Entrez une valeur</label>
   <input type="number" id="dark_field" class="nes-input is-dark"  name="test">
   
   <input  onclick="calculerCarre2()" value="Envoyer" class="nes-btn is-error"></input>
+  </div>
+
 </form>
-</div>
+
 <div id="affichage">
 
 </div>
@@ -45,10 +45,12 @@ $pseudocode = ob_get_clean();
         
       </div>
     </section>
-</p>
+
 <?php
 $JS = ob_get_clean();
+ob_start();
+$formulaire = ob_get_clean();
 
 
-include 'exo_1.html';
+include '../template.html';
 

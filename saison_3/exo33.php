@@ -11,6 +11,22 @@ $enonce = ob_get_clean();
 ob_start();
 ?>
 
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-Code</p>
+  <p>
+DEBUT<br>
+ECRIRE "Entrez un nombre : "<br>
+lire nbr <br>
+SI (nbr > 0) ALORS <br>
+Ecrire "votre nombre est positif"<br>
+sinon <br>
+ecrire "votre nombre est negatif"<br>
+FIN de si <br>
+FIN<br>
+
+  </p>
+</div>
+
 <?php
 $pseudocode = ob_get_clean();
 
@@ -45,7 +61,12 @@ ob_start();
     </section>
 <?php
 $JS = ob_get_clean();
+ob_start();
+
+$jquerry = ob_get_clean();
+ob_start();
+$formulaire = ob_get_clean();
 
 
-require 'exo_1.html';
+include '../template.html';
 ?>

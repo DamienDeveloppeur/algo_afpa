@@ -9,45 +9,59 @@ renvoie le nombre de ces notes supérieures à la moyenne de la classe.<br>
 $enonce = ob_get_clean();
 
 ob_start();
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Pseudo-code</p>
+  <p>
 
+  variable arrayNotes et arrayNoteOverMoy => tableau en numérique<br>
+  variable nbrDonnee, noteRentree, somme et moy en numérique<br>
+DEBUT<br>
+ecrire entrez le nombre de notes<br>
+lire nbrDonnee<br>
+POUR index  0 à index nbrDonnee<br>
+    ecrire "entrez une note"<br>
+    lire noteRentree <br>
+    ajouter nbr à arrayNotes<br>
+    somme = somme + noteRentree<br>
+FIN DU POUR<br>
+    moy = somme / arrayNotes.lenght<br>
+    POUR index (p) à 0 à taille de arrayNotes<br>
+        SI arrayNotes à l'index de p > moy <br>
+        ALORS <br>
+             arrayNoteOverMoy.push(arrayNotes[p])<br>
+FIN DU POUR<br>
+ecrire arrayNoteOverMoy<br>
+FIN<br>
+  </p>
+</div>
+<?php
 $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-    <script type="text/javascript">
+       <div class="nes-field is-inline">
 
-var nbr = prompt("Entrer le nombre de valeur souhaitée", "");
-var nbrDonnee = parseInt(nbr);
-var arrayNotes = [];
-var somme = 0;
+<input  onclick="exo614()" value="Envoyer" class="nes-btn is-error"></input>
+</div>
 
 
-for (i = 0; i < nbrDonnee; i++)
-{
-    var nbr1 = prompt("Entrer une note", "");
-    var noteRentree = parseInt(nbr1);
-  
-    arrayNotes.push(noteRentree);
-
-    somme = somme+  noteRentree;
-
-}
-
-var moy = somme / arrayNotes.length;
-document.write(moy + "<br>");
-
-
-
-var solution = arrayNotes.filter(element => element > moy);
- document.write(solution);
-
-
-
-      </script>
+<br>
+<section class="message -left">
+    <i class="nes-bcrikko"></i>
+    <!-- Balloon -->
+    <div id ="AJS614" class="nes-balloon from-left">
+      
+    </div>
+  </section>
 <?php
 $JS = ob_get_clean();
 
 ob_start();
+?>
+
+<?php
+
 
 $formulaire = ob_get_clean();
 

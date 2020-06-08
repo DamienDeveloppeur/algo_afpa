@@ -49,6 +49,7 @@ ob_start();
 </div>
 
   <input  onclick="exo33()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo33jq()" value="Envoyer" class="nes-btn is-error"></input>
 </form>
 </div>
 <br>

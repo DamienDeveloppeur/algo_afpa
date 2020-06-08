@@ -34,7 +34,8 @@ ob_start();
   <label for="dark_field" style="color:#fff;">Entrez un deuxiéme nombre  </label>
   <input type="text" id="FJS3352" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
 </div>
-  <input  onclick="exo35()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo35()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo35jq()" value="Exe jquery" class="nes-btn is-error"></input>
 </form>
 </div>
 <br>

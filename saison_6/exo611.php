@@ -1,10 +1,15 @@
 <?php
 ob_start();
 ?>
-<h1> Exercice 6.11 </h1>
-Toujours à partir de deux tableaux précédemment saisis, écrivez un algorithme qui calcule le « Toon » <br>
- des deux tableaux. Pour calculer le « Toon », il faut multiplier chaque élément du tableau 1 par chaque élément du tableau 2,
-et additionner le tout.
+<div class="nes-container is-dark with-title">
+  <p class="title">Exercice 6.11</p>
+  Toujours à partir de deux tableaux précédemment saisis,<br>
+ écrivez un algorithme qui calcule le « Toon » <br>
+ des deux tableaux. Pour calculer le « Toon »,<br>
+  il faut multiplier chaque élément du tableau 1 par chaque élément du tableau 2,<br>
+et additionner le tout.<br>
+</div>
+
  <?php 
 $enonce = ob_get_clean();
 
@@ -41,21 +46,53 @@ FIN<br>
 $pseudocode = ob_get_clean();
 
 ob_start();
+require './FunctionPhp6.php';
 ?>
-       <div class="nes-field is-inline">
 
-<input  onclick="exo611()" value="Envoyer" class="nes-btn is-error"></input>
-</div>
+<form method="POST" action="exo611.php">
 
+<input  onclick="exo611()" value="Exe javascript" class="nes-btn is-error"></input>
+<input  onclick="exo611jq()" value="Exe jquery" class="nes-btn is-error"></input>
+<input  type="hidden" name="exephp" value="">
+<input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+</form>
+<?php
+if (isset($_POST["exephp"]))
+{
+    $sommeTOTALE = exo611();
+
+}
+?>
 
 <br>
-<section class="message -left">
-    <i class="nes-bcrikko"></i>
-    <!-- Balloon -->
-    <div id ="AJS611" class="nes-balloon from-left">
-      
-    </div>
+<section class="nes-container is-dark">
+  <section class="message-list">
+      <section class="message -left">
+        <i class="nes-bcrikko"></i>
+        <!-- Balloon -->
+        <div id ="AJS611" class="nes-balloon from-left is-dark">
+         
+        </div>
+      </section>
+
+      <section class="message -right">
+        <!-- Balloon -->
+        <div class="nes-balloon from-right is-dark">
+          <?php
+
+           if(isset($sommeTOTALE))
+           {
+              echo $sommeTOTALE;
+           
+           }
+          
+          ?>
+        </div>
+        <i class="nes-bcrikko"></i>
+      </section>
+    </section>
   </section>
+</section>
   <?php
 $JS = ob_get_clean();
 

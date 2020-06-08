@@ -42,83 +42,83 @@ iNombreHasard "en " compteur "coup"<br>
   $pseudocode = ob_get_clean();
 
   ob_start();
+  session_start();
 ?>
-  
-      <form>
-
-<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
-<label for="dark_field" style="color:#fff;">Devinez le nombre entre 1 et 100</label>
-  <input type="number" id="FJS52B" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
-
-
-  <input  onclick="exo52B()" value="Envoyer" class="nes-btn is-error"></input>
+  <div id="FJS52BG">
+  <form method="POST" action="exo52B.php">  
+    <div class="nes-field is-inline">
+    <label for="dark_field" style="color:#fff;">Devinez le nombre entre 1 et 100</label>
+  <input type="number" id="FJS52B" class="nes-input is-dark"  name="nbr"/> <br><br><br>
   </div>
-</form>
 
-<br>
+  <input  onclick="exo52B()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo52Bjq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+
+</form>
+</div>
+<?php
+
+
+
+  if ( isset($_POST["nbr"]))
+  {
+    if (empty($_SESSION["nbr1"]))
+    {
+      $_SESSION["nbr1"] = rand (1, 100);
+    }
+   
+
+      $nbr = $_POST["nbr"];
+      if ($nbr != $_SESSION["nbr1"])
+      {
+          
+              if ($nbr < $_SESSION["nbr1"])
+              {
+                  $control = "Plus grand !";
+              }
+              elseif ($nbr > $_SESSION["nbr1"])
+              {
+                $control =  "Plus petit ! ";
+              }
+          
+          }
+          
+
+    else if ($nbr == $_SESSION["nbr1"])
+    {
+      $control = "bien joué !";
+      $_SESSION["nbr1"] = NULL;
+    }
+  }
+
+
+    
+
+
+?>
+
 <section class="message -left">
       <i class="nes-bcrikko"></i>
       <!-- Balloon -->
       <div id ="AJS52B" class="nes-balloon from-left">
-        
+      <?php
+       var_dump($_SESSION["nbr1"]);
+       var_dump($nbr);
+      if (isset($control))
+        {
+          //var_dump($nbr1);
+         
+           echo $control;
+         
+        }
+        ?>
       </div>
     </section>
-
-
-
-
-
-
 
 <?php
 $JS = ob_get_clean();
 
-
-  ob_start();
-
-?>
-<div class="refresh">
-    <?php
-  $nbr1 = rand (1, 1000);
-?>
-</div>
-
-
-<form method="POST" action="exo52B.php">  
-            <label>Votre message</label>
-            <input type="number" name="nbr"/>
-            <input type="submit" value="Envoyer"/> 
-    </form>
-
-<?php 
-
-
-if (isset($_POST["nbr"]) && isset($nbr1))
-{
-    
-$nbr = $_POST["nbr"];
-    if ($nbr != $nbr1)
-    {
-        
-            if ($nbr < $nbr1)
-            {
-                echo "Plus grand !";
-            }
-            elseif ($nbr > $nbr1)
-            {
-                echo "Plus petit ! ";
-            }
-        
-        }
-        
-
-else if ($nbr == $nbr1)
-{
-    echo "bien joué !";
-}
-}
-echo $nbr1;
- $formulaire = ob_get_clean();
 
  require('../template.html');
  ?>

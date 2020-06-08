@@ -32,50 +32,49 @@ $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-<form>
+<form method="POST" action="exo55.php"> 
 
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
 <label for="dark_field" style="color:#fff;">Entrez un chiffre</label>
-  <input type="number" id="FJS55" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
-
-
-  <input  onclick="exo55()" value="Envoyer" class="nes-btn is-error"></input>
+  <input type="number" id="FJS55" class="nes-input is-dark"  name="nbr"/> <br><br><br>
   </div>
-</form>
 
-<br>
+  <input  onclick="exo55()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo55jq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+
+</form>
+<?php
+if (isset($_POST["nbr"]))
+{
+  $nbr = $_POST["nbr"];
+  $i = 0;
+ $control = "";
+  for ($i = 0;  $i <  11; $i++)
+  {
+      
+     $control = $control . "<br>". $nbr ."*". $i ."=". $nbr * $i;
+  }
+}
+?>
+
 <section class="message -left">
       <i class="nes-bcrikko"></i>
       <!-- Balloon -->
       <div id ="AJS55" class="nes-balloon from-left">
+      <?php
+      if (isset($control))
+        {
         
+         
+           echo $control;
+         
+        }
+        ?>
       </div>
     </section>
     <?php
 $JS = ob_get_clean();
-ob_start();
-?>
-<form method="POST" action="exo55.php">  
-            <label>Votre message</label>
-            <input type="number" name="nbr"/>
-            <input type="submit" value="Envoyer"/> 
-    </form>
-<?php
-
-if (isset($_POST["nbr"]))
-{
-$nbr = $_POST["nbr"];
-$i = 0;
-$solution = $nbr * $i;
-for ($i = 0;  $i <  11; $i++)
-{
-    
-    echo $nbr ."*". $i ."=". $nbr * $i. "<br>";
-}
-}
-
-$formulaire = ob_get_clean();
-
 
 ob_start();
 

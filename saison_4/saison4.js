@@ -136,24 +136,13 @@ function exo44()
 function exo45()
 {
 
-    var sexe1 = document.getElementById("FJS451").value;
-
-   if (sexe1 == "h" || sexe1 == "H")
-   {
-       var sexe1 = 1;
-         var sexe = parseInt(sexe1);
-   }
-   else if (sexe1 == "f" || sexe1 == "F")
-   {
-       var sexe1 = 2;
-        var sexe = parseInt(sexe1);
-   }
+    var sexe = document.getElementById("FJS451").value;
 
 
     var age1 = document.getElementById("FJS452").value;
     var age = parseInt(age1);
     
-    if (sexe == 1)
+    if (sexe == 0)
     {
        if (age >= 20)
        {
@@ -166,7 +155,7 @@ function exo45()
            document.getElementById("AJS45").innerHTML = "Non-imposable";
        }
     }
-    else if (sexe == 2)
+    else if (sexe == 1)
     {
        if (age >= 18 && age <= 35)
        {
@@ -304,23 +293,50 @@ function exo48()
     var annee = +document.getElementById("FJS483").value;
 
 
-    if (mois >= 0 && mois <= 12)
+    if (mois >= 1 && mois <= 12)
     {
+       
         if (mois == 2)
         {
+            if (annee%4 == 0 && annee%400 == 0 && jour >0 && jour <= 29)
+            {
+
+                document.getElementById("AJS48").innerHTML = "Date valide";
+            }
+            else if((annee%1 == 0 || annee%100 == 0) && (jour > 0 && jour <= 28))
+           {
+            document.getElementById("AJS48").innerHTML = "Date valide";
+           }
+           else 
+           {
+            document.getElementById("AJS48").innerHTML = "Date invalide";
+           }
 
         }
         else
         {
-            if (jour >=0 && jour <= 31 )
+            if (mois == 1 |mois == 3 |mois == 5 |mois == 7 |mois == 8 |mois == 10 |mois == 12 && jour >= 1 && jour <= 31)
             {
-                
+                if (annee%1 == 0)
+                {
+                    document.getElementById("AJS48").innerHTML = "Date valide";
+                }
+
             }
+            else if (mois == 4 |mois == 6 |mois == 9 |mois == 11 && jour >= 1 && jour <= 30)
+            {
+                if (annee%1 == 0)
+                {
+                    document.getElementById("AJS48").innerHTML = "Date valide";
+                }
+            }
+        
         }
     }
    else
    {
-       document.getElementById("AJS48").innerHTML = "Moins invalide";
+       document.getElementById("AJS48").innerHTML = "Date invalide";
    }
 
 }
+

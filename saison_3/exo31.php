@@ -36,7 +36,7 @@ ob_start();
 
   <input  onclick="exo31()" value="Exe javascript" class="nes-btn is-error"></input>
   <input  onclick="exo31jq()" value="Exe jquery" class="nes-btn is-error"></input>
-  <input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+  
 </form>
 
 <br>

@@ -1,16 +1,24 @@
+// VARIABLE GLOBALE // 
+var iCompteur58A = 0;
+
+
+
+//FONCTIONS EXO
 function exo51()
 {
-        var nbr = +prompt("entrez un nombre", "");
-
-        while (nbr < 1 || nbr > 3 )
-                {
-                    var nbr = +prompt("entrez un nombre", "");
-                    
-                }
-
-                alert("fin de la boucle", "");
+    var divR = document.getElementById("AJS51");
+    var nbr = document.getElementById("FJS51").value; 
 
 
+    if (nbr < 1 || nbr > 3 )
+    {
+        divR.innerHTML = "Essaie encore !";
+    }
+    else 
+    {
+        divR.innerHTML = "Bravo !"
+        document.getElementById("FJS51G").style.display = "none";
+    }
 
 }
 function exo52A()
@@ -19,26 +27,24 @@ function exo52A()
     var divR = document.getElementById("AJS52A");
     var nbr = +document.getElementById("FJS52A").value; 
 
-    while (nbr < 10 || nbr > 20)
-    {
+ 
 
      if (nbr < 10)
         {
-            var nbr = +prompt("Plus grand !");
+          
             divR.innerHTML = "Plus grand !";
         }
         else if ( nbr > 20)
         {
-            var nbr = +prompt("plus petit");
+           
             divR.innerHTML = "Plus petit !";
         }
-      
+      else 
+      {
+        divR.innerHTML = "Bravo !";
+        document.getElementById("FJS52AG").style.display = "none";
+      }
 
-
-    }
-
-    divR.innerHTML = "Bravo !";
-    
 }
 
 function exo52B()
@@ -46,27 +52,28 @@ function exo52B()
         var divR = document.getElementById("AJS52B");
         var nbr = +document.getElementById("FJS52B").value; 
 
-        var iNombreHasard = Math.floor((Math.random(1,100) * 100 ));
+        var iNombreHasard1 = Math.floor((Math.random(1,100) * 100 ));
+        const iNombreHasard = iNombreHasard1;
     alert(iNombreHasard);
         var compteur = 0;
 
-        while (nbr != iNombreHasard)
-        {
-    compteur ++;
             if (nbr < iNombreHasard)
             {
-                var nbr = +prompt("Plus grand !");
+               compteur++;
                 divR.innerHTML = "Plus grand !";
             }
             else if ( nbr > iNombreHasard)
             {
-                var nbr = +prompt("plus petit");
+                compteur++;
                 divR.innerHTML = "Plus petit !";
             } 
+        else 
+        {
+            divR.innerHTML = "Bravo ! Tu as bien trouvé le nombre " + iNombreHasard + " en <br>"+
+            compteur + " coups";
         }
                     
-        divR.innerHTML = "Bravo ! Tu as bien trouvé le nombre " + iNombreHasard + " en <br>"+
-        compteur + " coups";
+       
 }
 
 function exo53()
@@ -77,7 +84,7 @@ function exo53()
     var listeNombre = "";
     var i = nbr ;
 
-    while (i != nbr +11)
+    while (i != nbr +10)
     {
         i++;
         listeNombre = listeNombre +  i + " ";
@@ -99,7 +106,7 @@ function exo54()
 
     for (i = nbr + 1; i < chaineAdditionnelle; i++)
     {
-        alert(i);
+        
         listeNombre = listeNombre +  i + " ";
         
     }
@@ -164,123 +171,172 @@ function exo57()
     }
 
 }
-
+var max58A = 0;
 function exo58A()
 {
     var divR = document.getElementById("AJS58A");
-   var nbr = 0;
-   var max = 0;
-    for (i=0; i < 20; i++)
-    {
 
-        var nbr = +prompt("Entrez un nombre");
-       
-       if (nbr > max)
-       {
-           max = nbr;
-       }
-        
-    }
-divR.innerHTML = max;
+        var nbr = +document.getElementById("FJS58A").value; 
+        iCompteur58A++;
+        if ( iCompteur58A < 5)
+        {
+           
+            if (iCompteur58A == 1 || nbr > max58A )
+            {
+                max58A = nbr;
+              
+            }
+            divR.innerHTML = "Il reste encore " + (5 - iCompteur58A) + " valeur a saisir en JS" +" "+ iCompteur58A;
+
+        }
+        else if (iCompteur58A == 5)
+        {
+            divR.innerHTML = "La valeur max est : "+ max58A;
+            iCompteur58A = 0;
+             max58A = 0;
+        }
+             
+   
 
 }
 
+var iCompteur58B = 0;
+var iMax58B = 0;
+var iPosition58B = 0;
 function exo58B()
 {
 
     var divR = document.getElementById("AJS58B");
-    var nbr = 0;
-    var max = 0;
-    var position = 0;
-     for (i=1; i < 5; i++)
-     {
- 
-         var nbr = +prompt("Entrez un nombre");
-        
-        if (nbr > max)
-        {
-            max = nbr;
-            position = i;
-        }
-         
-     }
- divR.innerHTML = "Le nombre le plus grand est : " + max + " arrivant en position : " + position;
-}
 
+    var nbr = +document.getElementById("FJS58B").value; 
+    iCompteur58B++;
+    if ( iCompteur58B < 5)
+    {
+       
+        if (iCompteur58B == 1 || nbr > iMax58B )
+        {
+            iMax58B = nbr;
+            iPosition58B = iCompteur58B ;
+        }
+        divR.innerHTML = "Il reste encore " + (5 - iCompteur58B) + " valeur a saisir en JS" +" "+ iCompteur58B;
+
+    }
+    else if (iCompteur58B == 5)
+    {
+        divR.innerHTML = "La valeur max est : "+ iMax58B+ " arrivant à la position :" + iPosition58B;
+        iCompteur58B = 0;
+        iMax58B = 0;
+    }
+}
+var iCompteur59 = 0;
+var iiMax59 = 0;
+var iPosition59 = 0;
 function exo59()
 {
-
+   
     var divR = document.getElementById("AJS59");
-  //  var nbr = +document.getElementById("FJS59").value; 
-    var compteur = 0;
-    var max = 0;
-    var position = 0;
-    do {
-        compteur++;
-        var nbr = +prompt("Entrer le nombre pour troller", ""); 
-        if (nbr > max)
+
+    var nbr = +document.getElementById("FJS59").value; 
+
+    iCompteur59++;
+    if ( nbr != 0)
+    {
+       
+        if (iCompteur59 == 1 || nbr >iMax59 )
         {
-            max = nbr;
-            position = compteur;
+           iMax59 = nbr;
+           iPosition59 = iCompteur59 ;
         }
+        divR.innerHTML = "Valeur bien enregistrée, nombre de tentative : " + iCompteur59 ;
 
-    } while (nbr != 0);
-
-divR.innerHTML = "Le nombre le plus grand est : " + max +" arrivant en " + position + "position";
+    }
+    else if (nbr == 0)
+    {
+        divR.innerHTML = "La valeur max est : "+ iMax59 +" arrivant à la position "+ iPosition59 ;
+        iCompteur59 = 0;
+        iMax59 = 0;
+        iPosition58B  = 0;
+    }
 }
 
+
+
+var total510 = 0;
+
+var control1 = 0;
+var sommeARendre510 = 0;
+var sommeARendre510Style = 0;
+var billet10 = 0;
+var billet5 = 0;
+var piece1 = 0;
 function exo510()
 {
-  var  divR = document.getElementById("AJS510");
-    var total = 0;
-    var sommeARendre = 0;
-    do 
+    var  divR510 = document.getElementById("AJS510");
+    var  nbr510 = +document.getElementById("FJS510").value;
+    var sommePayee510 = +document.getElementById("FJS5102").value;
+   
+    if (nbr510 != 0)
     {
-    var nbr=prompt("entrer le prix de l'article, zéro pour stop", "");
-    var nbr1 = parseInt(nbr);
-    total += nbr1;
-    
-    
-    } while (nbr != 0);
-    divR.innerHTML = "Vous devez un total de : " + total + "<br>";
-    
-    var sommePayeeString=prompt("entrer la somme payée", "");
-    var sommePayee= parseInt(sommePayeeString);
-    
-    if (sommePayee > total)
+        total510 += nbr510;
+        divR510.innerHTML = "Vous devez pour l'instant :"+ total510 + " de marchandise chinoise bon marché";
+    }
+    else if (nbr510 == 0)
+    {
+        divR510.innerHTML = "Vous devez un total de : " + total510 + "<br>";
+        document.getElementById("FJS510G").style.visibility = "visible";
+        control1 = 1;
+
+    }
+
+  if (control1 == 1)
+  {
+      
+        if (sommePayee510  != 0)
         {
-       sommeARendre = sommePayee - total ;
-       divR.innerHTML = " On vous rends :" + sommeARendre + "<br>";
-        }
-    else if (sommePayee == total)
-        {
-            divR.innerHTML = "Vous avez donné l'apoint, félicitation.<br> Vous avez fait preuve d'un certain civisme en épargnant du boulot à la caissiére";
-    
-        }
-    else 
-        {
-            divR.innerHTML = "vous n'avez pas donné assez";
-    
-            do 
+
+            if (sommePayee510  > total510)
             {
-                var nbr=prompt("entrer une nouvelle somme donnee", "");
-                 sommePayee = parseInt(nbr);
-                
-    
-    
-                } while (sommePayee < total );
-                
-                     if (sommePayee > total)
-                        {
-                       sommeARendre = sommePayee - total ;
-                       divR.innerHTML = " On vous rends :" + sommeARendre + "<br>";
-                        }
-                    else if (sommePayee == total)
-                        {
-                            divR.innerHTML = "Vous avez donné l'apoint, félicitation.<br> Vous avez fait preuve d'un certain civisme en épargnant du boulot à la caissiére";
-    
-                        }
+        sommeARendre510 = sommePayee510  - total510 ;
+        sommeARendre510Style = sommeARendre510;
+                while (sommeARendre510>= 10)
+                {
+                    sommeARendre510 -= 10;
+                    billet10++;
+                }
+                while (sommeARendre510 >= 5)
+                {
+                    sommeARendre510 -= 5;
+                    billet5++;
+                }
+                while (sommeARendre510 > 0)
+                {
+                    sommeARendre510 -= 1;
+                    piece1++;
+
+                }
+        divR510.innerHTML = " On vous rends :" + sommeARendre510Style + " avec " + billet10+ " Billet de 10, <br>"+
+        billet5 + " billet de 5 et " + piece1 + " piecette";
+            }
+
+        else if (sommePayee510  == total510)
+            {
+                divR510.innerHTML = "Vous avez donné l'apoint, merci de votre visite";
+
+            }
+
+        else if (sommePayee510  < total510)
+            { 
+                divR510.innerHTML = "vous n'avez pas donné assez, il manque : " + (total510 - sommePayee510);
+
+            }
+
         }
+         
+
+
+  }
+    
+  
 }
 
 function exo511()
@@ -288,11 +344,8 @@ function exo511()
 
     var divR = document.getElementById("AJS511");
 
-    var nbr=prompt("entrer le nombre de chevaux partans", "");
-    var n = parseInt(nbr);
-
-    var nbr2=prompt("entrer le nombre de chevaux joué", "");
-    var p = parseInt(nbr2);
+    var n = +document.getElementById("FJS511").value; 
+    var p = +document.getElementById("FJS512").value; 
 
 
     var factoN = 1;
@@ -318,7 +371,7 @@ function exo511()
 
     var Y = factoN / (factoP * factoPN);
 
-    divR.innerHTML = "Vous avez une chance sur " + X + "de gagner dans l'ordre";
-    divR.innerHTML = "Vous avez une chance sur " + Y + "de gagner dans le désordre";
+    divR.innerHTML = "Vous avez une chance sur " + X + " de gagner dans l'ordre <br> Vous avez une chance sur " + Y + " de gagner dans le désordre";
+         
 
 }

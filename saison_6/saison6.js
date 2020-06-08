@@ -49,18 +49,27 @@ function exo62()
     document.getElementById("AJS62").innerHTML= arrayLetter;
 }
 
+var sSoluceStyle = "";
+var iCompteur63 = 0;
 function exo63()
 {
-    var array = [];
-    for (i =0; i < 9; i++)
+    var nbr1 = +document.getElementById("FJS63").value;
+    iCompteur63++;
+
+    if (iCompteur63 < 10)
     {
-       var nbr=prompt("Entrer une note", "");
-       var nbr1 = parseInt(nbr);
+
+        var array = [];
+   
         array.push(nbr1);
-    
+        sSoluceStyle = sSoluceStyle  + " " + nbr1;
+        document.getElementById("AJS63").innerHTML = sSoluceStyle;
     }
-    
-    document.getElementById("AJS63").innerHTML = array;
+    else if (iCompteur63 == 9)
+    {
+        document.getElementById("AJS63").innerHTML = sSoluceStyle;
+        iCompteur63= 0;
+    }
 
 }
 
@@ -77,7 +86,7 @@ function exo64()
         
     }
 
-    document.getElementById("AJS64").innerHTML = showSoluce;
+    document.getElementById("AJS64").innerHTML = "JS" + showSoluce;
 }
 
 function exo65()
@@ -89,7 +98,7 @@ function exo65()
     for (k = 1; k < 7;k++ )
     {
         N[k] = N[k - 1] +2;
-        alert(N[k]);
+       
     }
     for (i = 0; i < 7; i++)
     {
@@ -134,86 +143,104 @@ function exo66()
         showSoluce = showSoluce + " "+ Suite[i];
 
     }
-    document.getElementById("AJS66").innerHTML = showSoluce;
+    document.getElementById("AJS66").innerHTML = "JS" + showSoluce;
 }
 
+var iCompteur67 = 0;
+var array67 = [];
+var somme67 = 0;
+var moy67 = 0;
 function exo67()
 {
-
-    var array = [];
-    var somme = 0;
-    var moy = 0;
-    
-    for (i =0; i < 9; i++)
+    var nbr1 = +document.getElementById("FJS67").value;
+    iCompteur67++;
+    array67.push(nbr1);
+    if ( iCompteur67 < 10)
     {
-       var nbr=prompt("Entrer une note", "");
-       var nbr1 = parseInt(nbr);
-        array.push(nbr1);
-    
-       somme = somme + nbr1;
-        moy = somme / array.length;
+        somme67 = somme67 + nbr1;
+        moy67 = somme67 / array67.length;
+        document.getElementById("AJS67").innerHTML ="Pour le moment la moyenne de : " + moy67 ;
     }
-    
-    
-    document.getElementById("AJS67").innerHTML ="Somme totale : " + 
-    somme + "<br> pour une moyenne de : " + moy ;
-
-}
-
-function exo68()
-{
-
-    var arrayP = [];
-    var arrayN = [];
-    var arrayZero = [];
-    var somme = 0;
-    var moy = 0;
-    
-    var nbr=prompt("Entrer le nombre de valeur souhaité", "");
-    var nbr1 = parseInt(nbr);
-    
-    for (i =0; i < nbr1; i++)
+    else if (iCompteur67 == 10)
     {
-        var nbr2=prompt("Entrer le nombre de valeur souhaité", "");
-    var nbr3 = parseInt(nbr2);
-    
-      if (nbr3 > 0)
-      {
-        arrayP.push(nbr3);
-      }
-       else if (nbr3 < 0)
-       {
-        arrayN.push(nbr3);
-       }
-        else 
-        {
-            arrayZero.push(nbr3);
-        }
+        document.getElementById("AJS67").innerHTML ="Somme totale : " + 
+        somme67 + "<br> pour une moyenne de : " + moy67 ;
+        iCompteur67 = 0;
     }
    
-    document.getElementById("AJS68").innerHTML = "Il y a "+ arrayP.length+"valeur positives, voici la liste :"+ arrayP +"<br>"+
-    "Il y a "+ arrayN.length+"valeur négatives, voici la liste :" + arrayN + "<br>" +
-    "Il y a eu " + arrayZero.length+ " zéro de rentrées ";
 
 }
+var arrayP68 = [];
+var arrayN68 = [];
+var arrayZero68 = [];
+var iCompteur68 = 0;
+function exo68()
+{
+    var nbr1 = +document.getElementById("FJS681").value;
+    iCompteur68++;
+   
+    document.getElementById("FJS682G").style.visibility = "visible";
+     
+    var nbr3 = +document.getElementById("FJS682").value;
+    if (iCompteur68 < nbr1 + 1)
+    {
+
+        if (nbr3 > 0)
+        {
+            arrayP68.push(nbr3);
+            document.getElementById("AJS68").innerHTML = "Nombre positif enregistré";
+        }
+        else if (nbr3 < 0)
+        {
+            arrayN68.push(nbr3);
+            document.getElementById("AJS68").innerHTML = "Nombre négatif enregistré";
+        }
+            else 
+            {
+                arrayZero68.push(nbr3);
+                document.getElementById("AJS68").innerHTML = "zéro enregistré";
+            }
+    }
+    else if (iCompteur68 == nbr1)
+    {
+        document.getElementById("AJS68").innerHTML = "Il y a "+ arrayP68.length+"valeur positives, voici la liste :"+ arrayP68 +"<br>"+
+        "Il y a "+ arrayN68.length+"valeur négatives, voici la liste :" + arrayN68 + "<br>" +
+        "Il y a eu " + arrayZero68.length+ " zéro de rentrées ";
+
+    }
+    
+}
+
+var iCompteur69 = -1;
+
+var somme69 = 0;
 
 function exo69()
 {
-    var arrayExemple = [5,6,1,9,3,4,5,10];
    
-    var somme = 0;
-    var moy = 0;
-    
+    var nbr1 = +document.getElementById("FJS691").value;
+    iCompteur69++;
  
-    for (i =0; i < arrayExemple.length ; i++)
-    {
-     somme += arrayExemple[i];
+    document.getElementById("FJS692G").style.visibility = "visible";
      
-    }
+    var nbr2 = +document.getElementById("FJS692").value;
     
-    document.getElementById("AJS69").innerHTML = somme;
+
+    if (iCompteur69 < nbr1 + 1)
+    {
+        somme69 += nbr2;
+        document.getElementById("AJS69").innerHTML = "Pour l'instant la somme est de : " + somme69 + "compteur :" + iCompteur69;
+    }
+    else if (iCompteur69 == nbr1)
+    {
+
+        document.getElementById("AJS69").innerHTML = "la somme est de : " + somme69;
+
+    }
 
 }
+
+
 
 function exo610()
 {
@@ -222,15 +249,17 @@ function exo610()
     var array2 = [7,6,5,2,1,3,7,4];
     var array3 = [];
     
-    
-    for (i =0; i < 8; i++)
-    {
-       
+   
+  
+       for(i =0; i <array1.length; i++)
+       {
         var nbr1 = array1[i];
         var nbr2 = array2[i];
         array3.push(nbr1 + nbr2);
+       }
      
-    }
+       
+     
     
     
     document.getElementById("AJS610").innerHTML = array3;
@@ -275,106 +304,117 @@ function exo611()
     document.getElementById("AJS611").innerHTML = sommeTOTALE;
 }
 
+
+
+
+var array612 = [];
+var iCompteur612 = 0;
 function exo612()
 {
 
-    var array = [];
+    var nbr1 = +document.getElementById("FJS6121").value;
 
 
-    var nbr=prompt("Entrer le nombre de valeur souhaité", "");
-    var nbr1 = parseInt(nbr);
+    document.getElementById("FJS6122G").style.display = "block";
     
-    for (i =0; i < nbr1; i++)
-    {
-        var nbr2=prompt("Entrer un nombre à mettre dans le TABLO", "");
-        var nbr3 = parseInt(nbr2);
-        var nbr4 = nbr3 + 1;
-     
-        array.push(nbr4);
-     
-    }
+    var nbr2 = +document.getElementById("FJS6122").value;
+    iCompteur612++;
     
-    document.getElementById("AJS612").innerHTML = array;
+  if (iCompteur612 < nbr1 + 1)
+  {
+    var nbr4 = nbr2 + 1;
+     
+    array612.push(nbr4);
+  }
+        
+    document.getElementById("AJS612").innerHTML = array612;
 
 }
 
+
+var array613 = [];
+var max613 = 0;
+var position613 = 0;
+var iCompteur613 = 0; 
 function exo613()
 {
 
-    var nombreDonneeSaisie1 = prompt("Entrer le nombre de donnee que vous souhaitez ?", "");
-    var nombreDonneeSaisie = parseInt(nombreDonneeSaisie1);
-    var array1 = [];
-    var max = 0;
-    var position = 0;
+    var nbr1 = +document.getElementById("FJS6131").value;
 
-    for (i = 1; i < nombreDonneeSaisie + 1; i++ )
 
+    document.getElementById("FJS6132G").style.visibility = "visible";
+    
+    var iNunberInArray = +document.getElementById("FJS6132").value;
+
+    iCompteur613++;
+
+   
+    if (iCompteur613 < nbr1)
     {
-        var nbr1 = prompt("Entrer le nombre de donnee que vous souhaitez ?", "");
-        var nombreDansLarray = parseInt(nbr1);
-        array1.push(nombreDansLarray);
-        if(nombreDansLarray > max)
+        array613.push(iNunberInArray);
+        document.getElementById("AJS613").innerHTML = "Valeur bien enregistrée, encore " + (nbr1 - iCompteur613) + "valeur à entrer" + " " + nbr1;
+        if((iNunberInArray > max) || iCompteur613 == 1 )
             {
-                max = nombreDansLarray;
-                position = i;
+                max613 = iNunberInArray ;
+                position613 = iCompteur613 - 1;
             }
-
+          
+             
+    }
+  
+    if (iCompteur613 == nbr1)
+    {
+        document.getElementById("AJS613").innerHTML = "le nombre le plus grand est : " + max613 + "arrivant en "+ position613 + "position";
     }
 
-    document.getElementById("AJS613").innerHTML = "le nombre le plus grand est : " + max + "arrivant en "+ position + "position";
+    
 
-    /*
-        var max =  Math.max.apply(Math, array1);
-        document.write("La valeur maximale est :" + max + "<br>");
-        var position = array1.indexOf(max);
-        document.write(position);
-    */
 }
 
+var arrayNotes614 = [];
+var arrayNoteOverMoy614 = [];
+var somme614 = 0;
+var iCompteur614 = 0;
+var moy614 = 0;
 function exo614()
 {
 
     
-    var nbr = prompt("Entrer le nombre de valeur souhaitée", "");
-    var nbrDonnee = parseInt(nbr);
-    var arrayNotes = [];
-    var arrayNoteOverMoy = [];
-    var somme = 0;
-
-
-    for (i = 0; i < nbrDonnee; i++)
-    {
-        var nbr1 = prompt("Entrer une note", "");
-        var noteRentree = parseInt(nbr1);
     
-        arrayNotes.push(noteRentree);
+    var nbrDonnee = +document.getElementById("FJS6141").value;
 
-        somme = somme+  noteRentree;
+    document.getElementById("FJS6142G").style.visibility = "visible";
 
-    }
+    var noteRentree = +document.getElementById("FJS6142").value;
 
-    var moy = somme / arrayNotes.length;
+    iCompteur614++;
 
-        /*
-        arrayNotes.forEach((element) => {
-            if (element > moy )
+
+    if (iCompteur614 < nbrDonnee + 2)
+    {
+        arrayNotes614.push(noteRentree);
+
+        somme614 = somme614 + noteRentree;
+        document.getElementById("AJS614").innerHTML = "Valeur bien enregistrée, encore " + ((nbrDonnee + 1)- iCompteur614);
+
+             if (iCompteur614 == nbrDonnee + 1)
+            {
+                var moy614 = somme614 / arrayNotes614.length;
+        
+                for (p = 0; p <arrayNotes614.length; p++ )
                 {
-                    arrayNoteOverMoy.push(element);
+                    if( arrayNotes614[p] > moy614 )
+                    {
+                        arrayNoteOverMoy614.push(arrayNotes614[p])
+                    }
                 }
-        });
-    */
-    for (p = 0; p <arrayNotes.length; p++ )
-    {
-    if( arrayNotes[p] > moy )
-    {
-        arrayNoteOverMoy.push(arrayNotes[p])
+                    document.getElementById("AJS614").innerHTML = "Notes au dessus de la moyenne : " + arrayNoteOverMoy614;
+                
+        
+            }
     }
-    }
-        document.getElementById("AJS614").innerHTML = "Notes au dessus de la moyenne : " + arrayNoteOverMoy;
-        /*
-            var solution = arrayNotes.filter(element => element > moy);
-            document.write(solution);
-        */
+
+    
 }
 
 function exo615()
@@ -395,28 +435,34 @@ function exo615()
         }
 
 
-        var nbr = +prompt("entrer l'année de compte", "");
+        var nbr = +document.getElementById("FJS6141").value;
 
-        /*document.write(nbr);*/
-        alert(arraySomme[nbr]);
+     
+      document.getElementById("AJS615").innerHTML = "Somme de l'année " + nbr + " :" +arraySomme[nbr];
 
 }
 
 function exo616()
 {
+    var choixArray = +document.getElementById("dark_select").value;
+
+    if (choixArray == 0)
+    {
+        Array1 = [1,2,3,4,5,6,7,8];
+    }
+    else if (choixArray == 1)
+    {
+        Array1 = [9,4,7,3,1,2,8,4];
+    }
+  
+
     var controle = 0;
     var array = [];
-   for (i=0; i < 10; i++)
-   {
-         array.push(i);
-   }
-   alert(array.length);
-   var arrayTest = [2,5,9,4,6]
-  
-   for (i=1; i < array.length - 1; i++)
+ 
+   for (i=1; i < Array1.length - 1; i++)
    {
        
-        if (array[i] - 1 == array[i - 1] && array[i]  + 1== array[i +1] )
+        if (Array1[i] - 1 == Array1[i - 1] && Array1[i]  + 1== Array1[i +1] )
         {
             controle = 1;
         }
@@ -427,38 +473,37 @@ function exo616()
    }
    if (controle == 1)
    {
-         alert("Tout est dans l'ordre");
+        
+         document.getElementById("AJS616").innerHTML = "Tout est dans l'ordre";
    }
    else
    {
-        alert("C'est pas dans l'ordre");
+       
+        document.getElementById("AJS616").innerHTML = "C'est pas dans l'ordre";
    }
-   
-   
-   
+
+ 
 
 }
 
 function exo617()
 {
-    var array = [];
+    var array617 = [12,6,-5,8,3,9,-8];
     
   
  
     for ( p = 0; p < 10; p++)
     {
-        var nbr = +prompt("entrez une valeur");
-        array.push(nbr);
 
-            for (i = 0; i < array.length; i++)
+            for (i = 0; i < array617.length; i++)
             {
-                if (array[i] > array[i+1])
+                if (array617[i] > array617[i+1])
                 {
-                    while (array[i] > array[i + 1])
+                    while (array617[i] > array617[i + 1])
                     {
-                        var temp = array[i];       
-                        array[i] = array[i + 1];    
-                        array[i + 1] = temp;         
+                        var temp = array617[i];       
+                        array617[i] = array617[i + 1];    
+                        array617[i + 1] = temp;         
                         i = 0;
                     }
                 
@@ -467,7 +512,7 @@ function exo617()
             }
            
     }
-    alert(array);
+    document.getElementById("AJS617").innerHTML = "Array après l'éxécution du programme : " +array617;
 
 }
 

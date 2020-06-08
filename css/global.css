@@ -102,23 +102,23 @@ aside {
 	display : none;
 }
 
-.nav-item:active > .nav-link-hover
+.nav-item2:active > .nav-link-hover
 {
 	display : block !important ;
 	z-index : 4;
 	
 }
-.nav-item:hover > .nav-link-hover
+.nav-item2:hover > .nav-link-hover
 {
 	display : block !important ;
 	z-index : 5;
 }
-.nav-item 
+.nav-item
 {
 	
 	width : 50%;
 }
-.nav-item 
+.nav-item2
 {
 	display : flex;
 }
@@ -126,7 +126,7 @@ aside {
 /* ~~~~~~~~~~~~~~~*/
 /* ~~~~~~~~~~~~~~~*/
 section {
-	color : white;
+	color : black;
 	font-size : 14px;
 
 	width: 100%px;
@@ -231,6 +231,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#172636', end
 display: block;
 
 }
+
+/* CLASS A OUTILS */
+/* ~~~~~~~~~~~~~~~*/
+/* ~~~~~~~~~~~~~~~*/
+.nes-bulbasaur .whiteBackground
+{
+	background-color : white !important ;
+}
+
+
 /* NES CSS SECTION */
 /* ~~~~~~~~~~~~~~~*/
 /* ~~~~~~~~~~~~~~~*/
@@ -262,10 +272,75 @@ display: block;
 {
 	font-size : 12px !important;
 }
+.nes-bulbasaur
+{
+	
+	height : 100px !important;
+	width : 100px !important;
+	background-color : black ;
+}
+.nes-squirtle
+{
+	height : 100px !important;
+	width : 100px !important;
+	background-color : black ;
+}
+/* DAMIER 817 */
+/* ~~~~~~~~~~~~~~~*/
+/* ~~~~~~~~~~~~~~~*/
+.caseNoir
+{
+	height : 100px;
+	width : 100px;
+	background-color : black;
+	border: 1px black;
+	/*position : absolute;*/
 
+}
+.caseRouge 
+{
+	background-color : red;
+	height : 100px;
+	width : 100px;
+	/*position : absolute;*/
+}
+.flexligne 
+{
+	display : flex;
+}
+.pieceNoir
+{ z-index : 15;
+	background-color : blue;
 
+	height : 100px;
+	width : 100px;
+	/*position : relative;
+	left:0px;
+	bottom : 0px;
+	right :0px;
+	top : 0px;*/
+}
+.pieceGrey
+{
+	background-color : grey;
 
+	height : 100px;
+	width : 100px;
+	/*position : rel*/
 
+}
+.nes-pokeball
+{
+	height : 100px !important;
+	width : 100px !important;
+	background-color : black !important;
+}
+.nes-kirby
+{
+	height : 100px !important;
+	width : 100px !important;
+	background-color : black !important;
+}
 
 /* FOOTER */
 /* ~~~~~~~~~~~~~~~*/

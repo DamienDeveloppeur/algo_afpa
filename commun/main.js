@@ -148,14 +148,14 @@ function testexe()
 {
     var p = document.getElementsByTagName('p')[3]
 
-var rougit = function()
-{
-    p.classList.toggle('blue')
-}
+    var rougit = function()
+    {
+        p.classList.toggle('blue')
+    }
 
-p.addEventListener('click', rougit )
+    p.addEventListener('click', rougit )
 
-    
+        
   
 }
 
@@ -178,3 +178,4 @@ function test()
 {
     alert("Hello le test" );
 }
+

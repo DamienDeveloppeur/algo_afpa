@@ -30,36 +30,61 @@ Peut-on simplifier cet algorithme avec le même résultat ?<br><br>
 $pseudocode = ob_get_clean();
 
 ob_start();
+session_start();
+unset($_SESSION["compteur617"]);
+require './FunctionPhp6.php';
 ?>
     
+    <form method="POST" action="exo64.php">
 
-    <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
+  <input  onclick="exo64()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo64jq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input  type="hidden" name="exephp" value="">
+  <input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
 
-<input  onclick="exo64()" value="Envoyer" class="nes-btn is-error"></input>
-</div>
+</form>
+<?php
+if (isset($_POST["exephp"]))
+{
+$showSoluce = exo64();
 
+}
+  
 
-<br>
-<section class="message -left">
-    <i class="nes-bcrikko"></i>
-    <!-- Balloon -->
-    <div id ="AJS64" class="nes-balloon from-left">
-      
-    </div>
+?>
+  <section class="nes-container is-dark">
+  <section class="message-list">
+      <section class="message -left">
+        <i class="nes-bcrikko"></i>
+        <!-- Balloon -->
+        <div id ="AJS64" class="nes-balloon from-left is-dark">
+         
+        </div>
+      </section>
+
+      <section class="message -right">
+        <!-- Balloon -->
+        <div class="nes-balloon from-right is-dark">
+          <?php
+            if (isset($showSoluce))
+            {
+             echo $showSoluce;
+            }
+          ?>
+        </div>
+        <i class="nes-bcrikko"></i>
+      </section>
+    </section>
   </section>
+</section>
 
-     
+
+
+
 <?php
 $JS = ob_get_clean();
 
-ob_start();
 
-$formulaire = ob_get_clean();
-
-
-ob_start();
-
-$jquery = ob_get_clean();
 
 
 

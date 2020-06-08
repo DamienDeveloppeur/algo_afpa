@@ -1,11 +1,15 @@
 <?php
 ob_start();
-echo "
-Exercice 5.2 (A)
-a) Ecrire un algorithme qui demande un nombre compris entre 10 et 20,<br>
+?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Exercice 5.2 (A)</p>
+  a) Ecrire un algorithme qui demande un nombre compris entre 10 et 20,<br>
  jusqu’à ce que la réponse convienne. En cas de réponse supérieure à 20,<br>
- on fera apparaître un message : « Plus petit ! », et inversement,<br> « Plus grand ! » si le nombre est inférieur à 10.";
-$enonce = ob_get_clean();
+ on fera apparaître un message : « Plus petit ! », et inversement,<br>
+  « Plus grand ! » si le nombre est inférieur à 10.";
+</div>
+<?php
+ $enonce = ob_get_clean();
 
 ob_start();
 ?>
@@ -32,41 +36,21 @@ FIN<br>
 $pseudocode = ob_get_clean();
 ob_start();
 ?>
-
-<form>
+<div id="FJS52AG">
+<form method="POST" action="exo52A.php">  
 
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
 <label for="dark_field" style="color:#fff;">Entrez un chiffre entre 10 et 20</label>
-  <input type="number" id="FJS52A" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+  <input type="number" id="FJS52A" class="nes-input is-dark"  name="nbr"/> <br><br><br>
+</div>
 
-
-  <input  onclick="exo52A()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo52A()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo52Ajq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input type="submit" value="Exe PHP" class="nes-btn is-error"></input>
   </div>
 </form>
-
-<br>
-<section class="message -left">
-      <i class="nes-bcrikko"></i>
-      <!-- Balloon -->
-      <div id ="AJS52A" class="nes-balloon from-left">
-        
-      </div>
-    </section>
-
+</div>
 <?php
-$JS = ob_get_clean();
-ob_start();
-?>
-
-<form method="POST" action="exo52A.php">  
-            <label>Votre message</label>
-            <input type="number" name="nbr"/>
-            <input type="submit" value="Envoyer"/> 
-    </form>
-
-<?php 
-
-
 if (isset($_POST["nbr"]))
 {
 $nbr = $_POST["nbr"];
@@ -75,19 +59,46 @@ $nbr = $_POST["nbr"];
     {
         if ($nbr < 10)
         {
-            echo "Plus grand !";
+           $control = "Plus grand !";
         }
         elseif ($nbr > 20)
         {
-            echo "Plus petit ! ";
+            $control ="Plus petit ! ";
         }
     
     }
     else 
     {
-        echo "Bravo !";
+       $control = "Bravo !";
+       ?>
+       <script>
+       document.getElementById("FJS52AG").style.display = "none";
+    </script>
+    <?php
     }
 }
+?>
+<section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div id ="AJS52A" class="nes-balloon from-left">
+      <?php
+      if (isset($control))
+        {
+
+         
+           echo $control;
+         
+        }
+        ?>
+      </div>
+    </section>
+
+<?php
+$JS = ob_get_clean();
+ob_start();
+
+
 $formulaire = ob_get_clean();
 
 require('../template.html');

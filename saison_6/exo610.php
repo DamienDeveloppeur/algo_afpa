@@ -1,5 +1,6 @@
 <?php
 ob_start();
+
 ?>
 <h1> Exercice 6.10 </h1>
 Ecrivez un algorithme constituant un tableau, à partir de deux tableaux de même longueur préalablement saisis.<br>
@@ -33,21 +34,51 @@ FIN<br>
 $pseudocode = ob_get_clean();
 
 ob_start();
+require './FunctionPhp6.php';
 ?>
-       <div class="nes-field is-inline">
 
-<input  onclick="exo610()" value="Envoyer" class="nes-btn is-error"></input>
-</div>
+<form method="POST" action="exo610.php">
 
+<input  onclick="exo610()" value="Exe javascript" class="nes-btn is-error"></input>
+<input  onclick="exo610jq()" value="Exe jquery" class="nes-btn is-error"></input>
+<input  type="hidden" name="exephp" value="">
+<input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+</form>
+<?php
+if (isset($_POST["exephp"]))
+{
+    $showSoluce = exo610();
 
-<br>
-<section class="message -left">
-    <i class="nes-bcrikko"></i>
-    <!-- Balloon -->
-    <div id ="AJS610" class="nes-balloon from-left">
-      
-    </div>
+}
+?>
+<section class="nes-container is-dark">
+  <section class="message-list">
+      <section class="message -left">
+        <i class="nes-bcrikko"></i>
+        <!-- Balloon -->
+        <div id ="AJS610" class="nes-balloon from-left is-dark">
+         
+        </div>
+      </section>
+
+      <section class="message -right">
+        <!-- Balloon -->
+        <div class="nes-balloon from-right is-dark">
+          <?php
+
+           if(isset($showSoluce))
+           {
+              echo $showSoluce;
+           
+           }
+          
+          ?>
+        </div>
+        <i class="nes-bcrikko"></i>
+      </section>
+    </section>
   </section>
+</section>
 <?php
 $JS = ob_get_clean();
 

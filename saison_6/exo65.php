@@ -45,34 +45,59 @@ ob_start();
 $showphp = ob_get_clean();
 
 ob_start();
+require './FunctionPhp6.php';
 ?>
 
-<div  class="nes-field is-inline ">
 
-<input  onclick="exo65simple()" value="Envoyer" class="nes-btn is-error"></input>
-</div>
+<form method="POST" action="exo65.php">
+<input  onclick="exo65()" value="Exe javascript" class="nes-btn is-error"></input>
+<input  onclick="exo65jq()" value="Exe jquery" class="nes-btn is-error"></input>
+<input  type="hidden" name="exephp" value="">
+<input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+</form>
+<?php
+if (isset($_POST["exephp"]))
+{
+$showSoluce = exo65();
+}
+?>
+  <section class="nes-container is-dark">
+  <section class="message-list">
+      <section class="message -left">
+        <i class="nes-bcrikko"></i>
+        <!-- Balloon -->
+        <div id ="AJS65" class="nes-balloon from-left is-dark">
+         
+        </div>
+      </section>
 
-
-<br>
-<section class="message -left">
-    <i class="nes-bcrikko"></i>
-    <!-- Balloon -->
-    <div id ="AJS65" class="nes-balloon from-left">
-      
-    </div>
+      <section class="message -right">
+        <!-- Balloon -->
+        <div class="nes-balloon from-right is-dark">
+          <?php
+            if (isset($showSoluce))
+            {
+             echo $showSoluce;
+            
+            }
+          ?>
+        </div>
+        <i class="nes-bcrikko"></i>
+      </section>
+    </section>
   </section>
+</section>
+
+
+
+
+
+
+
 <?php
 $JS = ob_get_clean();
 
-ob_start();
 
-$jquerry = ob_get_clean();
-
-ob_start();
-?>
-
-<?php
-$formulaire = ob_get_clean();
 
 
 require('../template.html');

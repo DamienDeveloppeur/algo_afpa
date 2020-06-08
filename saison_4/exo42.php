@@ -49,77 +49,74 @@ ob_start();
 <form method="POST" action="exo42.php">
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
 <label for="dark_field" style="color:#fff;">Entrez les heure </label>
-  <input type="number" id="FJS421" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+  <input type="number" id="FJS421" class="nes-input is-dark"  name="heure"/> <br><br><br>
 </div>
 
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
 <label for="dark_field" style="color:#fff;">Entrez les minutes </label>
-  <input type="number" id="FJS422" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
+  <input type="number" id="FJS422" class="nes-input is-dark"  name="minutes"/> <br><br><br>
 </div>
 
   <input  onclick="exo42()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo42jq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
 </form>
 
+
 <br>
-<section class="message -left">
-      <i class="nes-bcrikko"></i>
-      <!-- Balloon -->
-      <div id ="AJS42" class="nes-balloon from-left">
-        
-      </div>
-    </section>
-    
-    <?php
-$JS = ob_get_clean();
-
-ob_start();
-?>
-<form  method="POST" action="exo42.php">  
-            <label>Indiquer l'heure : </label>
-            <input type="number" name="heure"/>
-            
-
-            <label>Indiquer les minutes</label>
-            <input type="number" name="minutes"/>
-            
-
-            
-            <input type="submit" value="Envoyer"/> 
-
-
-
-    </form>
-
 <?php
-
-
-
-
 if (isset($_POST["heure"]) && isset($_POST["minutes"]) )
 {
+
     $minutes = $_POST["minutes"];
     $heure = $_POST["heure"];
     if ($minutes < 59 && $heure < 24)
     {
         $minutes += 1;
         
-        echo " Dans une minute, il sera " . $_POST["heure"] . "H" . $minutes;
+        $control = " Dans une minute, il sera " . $_POST["heure"] . "H" . $minutes;
     }
     elseif ($heure < 23 && $minutes = 59)
     {
         $heure += 1;
         $minutes = 00;
-        echo " Dans une minute, il sera " . $heure . "H" . $minutes;
+        $control =" Dans une minute, il sera " . $heure . "H" . $minutes;
     }
     elseif($heure = 23 && $minutes =59)
     {
         $heure = 00;
         $minutes = 00;
-        echo " Dans une minute, il sera " . $heure . "H" . $minutes;
+        $control = " Dans une minute, il sera " . $heure . "H" . $minutes;
     }
 
-}
-$formulaire = ob_get_clean();
+  }
+
+?>
+
+
+<section class="message -left">
+      <i class="nes-bcrikko"></i>
+      <!-- Balloon -->
+      <div id ="AJS42" class="nes-balloon from-left">
+        <?php
+        if (isset($minutes))
+        {
+         
+          echo " Dans une minute, il sera " . $heure . "H" . $minutes;
+         
+        }
+        ?>
+      </div>
+    </section>
+    
+    <?php
+    
+
+
+$JS = ob_get_clean();
+
+
+
 
 
 ob_start();

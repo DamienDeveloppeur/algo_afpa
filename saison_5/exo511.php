@@ -1,7 +1,10 @@
 <?php
 ob_start();
 ?>
+<div class="nes-container is-dark with-title">
+  <p class="title">Exercice 5.11</p>
 
+</div>
 <?php
 $enonce = ob_get_clean();
 
@@ -52,23 +55,70 @@ $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-   <form>
+   <form method="POST" action="exo511.php">
 
-<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
-<label for="dark_field" style="color:#fff;">Entrez un chiffre</label>
-  <input type="number" id="FJS511" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
-
-
-  <input  onclick="exo511()" value="Envoyer" class="nes-btn is-error"></input>
+<div  class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez le nombre de chevaux partants</label>
+  <input type="number" id="FJS511" class="nes-input is-dark"  name="nbr1"/> <br><br><br>
   </div>
-</form>
+  <div  class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez le nombre de chevaux joués</label>
+  <input type="number" id="FJS512" class="nes-input is-dark"  name="nbr2"/> <br><br><br>
+  </div>
 
-<br>
+  <input  onclick="exo511()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo511JQ()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+ 
+</form>
+<?php
+if (isset($_POST["nbr1"]) && isset($_POST["nbr2"]))
+{
+  $nbr1 =  $_POST["nbr1"];
+  $nbr2 =  $_POST["nbr2"];
+
+
+   $factoN = 1;
+  for ($i = 1; $i != $nbr1 + 1; $i++  )
+  {
+      $factoN = $factoN * $i;  
+  }
+
+   $factoPN = 1;
+  for ($i = 1; $i != ($nbr1 - $nbr2)  + 1; $i++  )
+  {
+      $factoPN = $factoPN * $i;  
+  }
+
+   $factoP = 1;
+  for ($i = 1; $i != $nbr2  + 1; $i++  )
+  {
+      $factoP = $factoP * $i;  
+  }
+
+
+ $X = $factoN / $factoPN;
+
+  $Y = $factoN / ($factoP * $factoPN);
+
+
+}
+
+
+
+?>
 <section class="message -left">
       <i class="nes-bcrikko"></i>
       <!-- Balloon -->
       <div id ="AJS511" class="nes-balloon from-left">
-        
+      <?php  
+    if (isset($X) && isset($Y))
+    {
+      echo "Une chance sur". $X . "de gagner dans l'ordre <br>
+      Une chance sur". $Y . "de gagner dans le désordre";
+    }
+
+?>
       </div>
     </section>
 <?php

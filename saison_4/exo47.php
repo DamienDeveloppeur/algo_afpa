@@ -39,67 +39,47 @@ ob_start();
 <div class="nes-container is-dark with-title">
   <p class="title">Pseudo-code</p>
   <p>
-variable compteurPoint, age, titulairePermisTemps, nbrAccident et anciennete en numérique 
+variable compteurPoint, age, titulairePermisTemps, nbrAccident et anciennete en numérique <br>
 
-DEBUT
-    ecrire indiquez l'age, depuis combien d'année
-     vous êtes titulaire du permis, 
-     le nombre d'accident resposnable et l'anciennete
-    lire age, TitulairePermisTemps, nbrAccident et anciennete 
+DEBUT<br>
+    ecrire indiquez l'age, depuis combien d'année<br>
+     vous êtes titulaire du permis, <br>
+     le nombre d'accident resposnable et l'anciennete<br>
+    lire age, TitulairePermisTemps, nbrAccident et anciennete <br>
 
-        SI age > 25
-            compteurPoint += 1
-        SI TitulairePermisTemps > 2
-             compteurPoint += 1
-        SI nbrAccident == 1
-            compteurPoint += 1
-        SINON SI nbrAccident == 2
-            compteurPoint -= 1
-        SINON SI nbrAccident == 3
-            compteurPoint -= 1
-        SI anciennete > 5
-            compteurPoint += 1
-        FIN DU SI 
+        SI age > 25<br>
+            compteurPoint += 1<br>
+        SI TitulairePermisTemps > 2<br>
+             compteurPoint += 1<br>
+        SI nbrAccident == 1<br>
+            compteurPoint += 1<br>
+        SINON SI nbrAccident == 2<br>
+            compteurPoint -= 1<br>
+        SINON SI nbrAccident == 3<br>
+            compteurPoint -= 1<br>
+        SI anciennete > 5<br>
+            compteurPoint += 1<br>
+        FIN DU SI <br>
+        <br>
+        SI compteurPoint == 4<br>
+            ecrire tarif bleue<br>
+        SI compteurPoint == 3<br>
+            ecrire tarif vert<br>
+        SI compteurPoint == 2<br>
+            ecrire tarif orange<br>
+        SI compteurPoint == 1<br>
+            ecrire tarif rouge <br>
+        SI compteurPoint < 1<br>
+            ecrire refusé <br>
+        FIN DU SI<br>
 
-        SI compteurPoint == 4
-            ecrire tarif bleue
-        SI compteurPoint == 3
-            ecrire tarif vert
-        SI compteurPoint == 2
-            ecrire tarif orange
-        SI compteurPoint == 1
-            ecrire tarif rouge 
-        SI compteurPoint < 1
-            ecrire refusé 
-        FIN DU SI
-
-FIN
+FIN<br>
 
   </p>
 </div>
 <?php
 $pseudocode = ob_get_clean();
-ob_start();
-?>
-<form method="POST" action="exo47.php">
 
-    <label>Votre age </label>
-    <input type="number" name="age"><br>
-
-<label>Titulaire du permis depuis combien de temps ? </label>
-    <input type="number" name="TitulairePermisTemps"><br>
-
-    <label>Combien d'accident responsable ? </label>
-    <input type="number" name="nbrAccident"><br>
-
-    <label>Quel est votre ancienneté ? </label>
-    <input type="number" name="anciennete"><br>
-
-
-
-    <input type="submit" value="valider">
-</form>
-<?php
 
 if (isset($_POST["age"]) && isset($_POST["TitulairePermisTemps"]) && isset($_POST["nbrAccident"]) && isset($_POST["anciennete"]))
 {
@@ -107,120 +87,83 @@ $age = $_POST["age"];
 $TitulairePermisTemps = $_POST["TitulairePermisTemps"];
 $nbrAccident = $_POST["nbrAccident"];
 $anciennete = $_POST["anciennete"];
-
-    if ($age >= 25)
-    {
-        if ($TitulairePermisTemps >= 2)
-        {
-            if ($nbrAccident == 0)
-            {
-                if ($anciennete > 5)
-                {
-                    echo"tarif bleue";
-                }
-                else 
-                {
-                    echo"tarif vert";
-                }
-                
-            }
-            else if ($nbrAccident = 1)
-            {
-                if ($anciennete > 5)
-                {
-                    echo"tarif vert";
-                }
-                else 
-                {
-                    echo"tarif orange";
-                }
-                
-            }
-            else if ($nbrAccident = 2)
-            {
-                if ($anciennete > 5)
-                {
-                    echo"tarif orange";
-                }
-                else 
-                {
-                    echo"tarif rouge";
-                }
-            }
-            else
-            {
-                echo"refusé";
-            }
-        }
-        else if ($TitulairePermisTemps < 2)
-        {
-            if ($nbrAccident = 0)
-            {
-                echo"tarif orange";
-            }
-            if ($nbrAccident = 1)
-            {
-                echo"tarif rouge";
-            }
-            else
-            {
-                echo"refusé";
-            }
-        }
-
-    }
-    else if ($age < 25)
-    {
-        if ($TitulairePermisTemps < 2)
-        {
-            if ($nbrAccident = 0)
-            {
-                echo"tarif rouge";
-            }
-            else 
-            {
-                echo"refusé";
-            }
-        }
-        if ($TitulairePermisTemps > 2)
-        {
-            if ($anciente > 5)
-            {
-                echo"tarif vert";
-            }
-            else
-            {
-                echo"tarif orange";
-            }
-        }
-    }
+$compteurPoint = 1;
+if ($age > 25)
+{
+    $compteurPoint += 1;
 }
-$formulaire = ob_get_clean();
+if ($TitulairePermisTemps > 2)
+{
+    $compteurPoint += 1;
+}
+if ($nbrAccident == 1)
+{
+    $compteurPoint -= 1;
+}
+else if ($nbrAccident == 2)
+{
+    $compteurPoint -= 2;
+}
+else if ($nbrAccident == 3)
+{
+    $compteurPoint -= 6;
+}
+if ($anciennete > 5)
+{
+    $compteurPoint += 1;
+}
+
+if ($compteurPoint == 4)
+{
+    $control = "Tarif bleue";
+}
+if ($compteurPoint == 3)
+{
+    $control = "Tarif vert";
+}
+if ($compteurPoint == 2)
+{
+    $control = "Tarif orange";
+}
+if ($compteurPoint == 1)
+{
+    $control = "Tarif rouge";
+}
+if ($compteurPoint < 1)
+{
+    $control = "Refusé";
+}
+
+
+}
+
 ob_start();
 ?>
-<form>
+<form method="POST" action="exo47.php">
 <div class="nes-field" style="background-color:#212529; padding: 1rem;">
   <label for="name_field">Indiquez votre age</label>
-  <input type="text" id="FJS471" class="nes-input">
+  <input type="text" id="FJS471" class="nes-input" name="age">
 </div>
 
 <div class="nes-field"style="background-color:#212529; padding: 1rem;">
   <label for="name_field">Titulaire du permis depuis combien d'années ?</label>
-  <input type="text" id="FJS472" class="nes-input">
+  <input type="text" id="FJS472" class="nes-input" name="TitulairePermisTemps">
 </div>
 <br><br><br>
 <div class="nes-field"style="background-color:#212529; padding: 1rem;">
   <label for="name_field">Nombre d'accident responsable ?</label>
-  <input type="text" id="FJS473" class="nes-input">
+  <input type="text" id="FJS473" class="nes-input" name="nbrAccident">
 </div>
 
 <div class="nes-field"style="background-color:#212529; padding: 1rem;">
   <label for="name_field">Ancienneté ?</label>
-  <input type="text" id="FJS47" class="nes-input">
+  <input type="text" id="FJS47" class="nes-input" name="anciennete">
 </div>
 <br><br><br>
 
-<input  onclick="exo47()" value="Envoyer" class="nes-btn is-error"></input>
+<input  onclick="exo47()" value="Exe javascript" class="nes-btn is-error"></input>
+<input  onclick="exo47jq()" value="Exe jquery" class="nes-btn is-error"></input>
+<input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
 </form>
 
 <br>
@@ -228,7 +171,12 @@ ob_start();
    <i class="nes-bcrikko"></i>
    <!-- Balloon -->
    <div id ="AJS47" class="nes-balloon from-left">
-     
+   <?php
+      if (isset($control))
+        {
+         echo $control;
+        }
+        ?>
    </div>
  </section>
 

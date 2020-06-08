@@ -1,8 +1,12 @@
 <?php
 ob_start();
 ?>
-<h1> Exercice 6.1 </h1>
-Ecrire un algorithme qui déclare et remplisse un tableau de 7 valeurs numériques en les mettant toutes à zéro.
+<div class="nes-container is-dark with-title">
+  <p class="title">Exercice 6.1</p>
+  Ecrire un algorithme qui déclare et remplisse un tableau de<br>
+ 7 valeurs numériques en les mettant toutes à zéro.<br>
+  </div>
+
  <?php 
 $enonce = ob_get_clean();
 
@@ -12,15 +16,15 @@ ob_start();
 <div class="nes-container is-dark with-title">
   <p class="title">Pseudo-Code</p>
   <p>
-DEBUT 
-tableau de Nbr(7)
-Pour i = 0 à 7
-    i = 0
-      Nb(i) = i 
-      i suivant
-      Fin de la boucle
-      Ecrire Nb(i)
-Fin
+DEBUT <br>
+tableau de Nbr(7)<br>
+Pour i = 0 à 7<br>
+    i = 0<br>
+      Nb(i) = i <br>
+      i suivant<br>
+      Fin de la boucle<br>
+      Ecrire Nb(i)<br>
+Fin<br>
   </p>
 </div>
 
@@ -28,69 +32,62 @@ Fin
 $pseudocode = ob_get_clean();
 
 ob_start();
+require './FunctionPhp6.php'
 ?>
+  <form method="POST" action="exo61.php">
+  
 
-<div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
-
-  <input  onclick="exo61()" value="Envoyer" class="nes-btn is-error"></input>
+<div  class="nes-field is-inline">
+<label for="dark_field" style="color:#fff;">Entrez le nombre de chevaux partants</label>
+  <input type="number" id="FJS63" class="nes-input is-dark"  name="nbr1"/> 
   </div>
 
+  <input  onclick="exo61()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo61jq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input  type="hidden" name="exephp" value="">
+  <input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
 
-<br>
-<section class="message -left">
-      <i class="nes-bcrikko"></i>
-      <!-- Balloon -->
-      <div id ="AJS61" class="nes-balloon from-left">
-        
-      </div>
-    </section>
+</form>
+
 <?php
-$JS = ob_get_clean();
+if (isset($_POST["exephp"]))
+{
+ $solution = exo61();
+}
 
-ob_start();
-?>
-
-  <input type="submit" value="Envoyer en php" name="exo61php" class="nes-btn is-error"></input>
-
-<br>
-<?php
-  if (isset($_POST["exo61php"]))
-  {
-
-      $arrayphp = array();
-      $p = 0;
-      for ($i =0; $i < 7; $i++)
-      {
-        $array[] = $p;
-      }
-
-
-  }
-
+ 
 
   ?>
-  <section class="message -left">
+    <section class="nes-container is-dark">
+  <section class="message-list">
+      <section class="message -left">
         <i class="nes-bcrikko"></i>
         <!-- Balloon -->
-        <div id ="AJS61" class="nes-balloon from-left">
-          <?php
-if (isset($_POST["exo61php"]))
-{
-  echo "VOici la solution". $array;
-
-}
-?>
+        <div id ="AJS61" class="nes-balloon from-left is-dark">
+         
         </div>
       </section>
-  <?php
-$formulaire = ob_get_clean();
+
+      <section class="message -right">
+        <!-- Balloon -->
+        <div class="nes-balloon from-right is-dark">
+          <?php
+          if (isset($solution))
+          {
+           echo $solution;
+          }
+          ?>
+        
+        </div>
+        <i class="nes-bcrikko"></i>
+      </section>
+    </section>
+  </section>
+</section>
 
 
-ob_start();
-
-$jquery = ob_get_clean();
-
-
+<?php
+$JS = ob_get_clean();
 
 require '../template.html';
 ?>

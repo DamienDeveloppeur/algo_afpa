@@ -38,54 +38,85 @@ FIN<br>
 $pseudocode = ob_get_clean();
 
 ob_start();
+session_start();
+require './FunctionPhp6.php';
 ?>
-    <div class="nes-field is-inline">
+<form method="POST" action="exo617.php">
+<div class="nes-field is-inline" id="FJS6141G" style="display: block">
+<label for="dark_field" style="color:#fff;">Entrez le nombre de valeur souhaitée dans le tableau</label>
+  <input type="number" id="FJS6141" class="nes-input is-dark"  name="nbr1"/> 
+  </div>
 
-<input  onclick="exo617()" value="Envoyer" class="nes-btn is-error"></input>
-</div>
+
+  <div class="nes-field is-inline" style="visibility: hidden" id="FJS6142G">
+<label for="dark_field" style="color:#fff;">Entrez les valeurs souhaitées</label>
+  <input type="number" id="FJS6142" class="nes-input is-dark"  name="nbr2"/>
+  </div>
+
+
+ 
+    <div id="FC619" style="display: none" >
+  <label for="dark_field" style="color:#fff;">Entrez un chiffre</label>
+  <?php
+$_POST["nbr1"] = intval($_POST["nbr1"]);
+  for ($i=0; $i < $_POST["nbr1"] ; $i++)
+      {
+          echo '<div class="nes-field is-inline"> <input id="FJS617'.$i.'" type="number" name="nbrc'.$i.'"/> <br> </div>';
+          
+      }
+  ?>
+ </div>
+
+<input  onclick="exo617()" value="Exe javascript" class="nes-btn is-error"></input>
+<input  onclick="exo617jq()" value="Exe jquery" class="nes-btn is-error"></input>
+<input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
+</form>
+<?php
+
+//$_SESSION["compteur617"] = NULL;
+
+if ((isset($_POST["nbr1"]) && !empty($_POST["nbr1"]) && $_POST["nbr1"] != 0) || (isset($_SESSION["nbr1"]) && !empty($_SESSION["nbr1"])))
+{
+   
+    ?>
+<script> 
+document.getElementById("FC619").style.display = "block";
+</script>
+    <?php
+     $soluce = exo617();
+}
+
+?>
+
 <br>
-<section class="message -left">
-    <i class="nes-bcrikko"></i>
-    <!-- Balloon -->
-    <div id ="AJS617" class="nes-balloon from-left">
-      
-    </div>
+
+<section class="nes-container is-dark">
+  <section class="message-list">
+      <section class="message -left">
+        <i class="nes-bcrikko"></i>
+        <!-- Balloon -->
+        <div id ="AJS617" class="nes-balloon from-left is-dark">
+        <!-- <p>Array JQ et jquery avant l'éxécution du programme : [12,6,-5,8,3,9,-8] </p> -->
+        </div>
+      </section>
+
+      <section class="message -right">
+        <!-- Balloon -->
+        <div class="nes-balloon from-right is-dark">
+          <?php
+         var_dump($_SESSION["compteur617"]);
+
+            print_r($_SESSION["array617"]);
+
+          ?>
+        </div>
+        <i class="nes-bcrikko"></i>
+      </section>
+    </section>
   </section>
+</section>
 <?php
 $JS = ob_get_clean();
-
-ob_start();
-
-?>
-<form method="POST" action="exo617.php">  
-            <label>Votre message</label><br>
-          
-
-<?php
-for ($i=1; $i <10; $i++)
-    {
-        echo '<input type="text" name="nbr'.$i.'"/> <br>';   
-    }
-
-?>
-<input type="submit" value="Envoyer"/> 
-       </form>
-<?php
-$array = array();
-
-    if (isset($_POST["nbr0"]))
-    {
-        $array[$i] = $_POST["nbr$i"];                                
-    }
-echo $array;
-
-$formulaire = ob_get_clean();
-
-
-ob_start();
-
-$jquery = ob_get_clean();
-
 
 
 require '../template.html';

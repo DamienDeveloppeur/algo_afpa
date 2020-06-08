@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../css/exos.css">
 
     <!--main js-->
-    <script src="../js/jquery-3.4.1.min.js"></script>
+    
     <script src="../saison_2/saison2.js"></script>
     <script src="../saison_3/saison3.js"></script>
     <script src="../saison_4/saison4.js"></script>
@@ -26,8 +26,16 @@
     <script src="../saison_9/saison9.js"></script>
     <script src="../saison_10/saison10.js"></script>
       
-    
+    <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../saison_3/saison3jq.js"></script>
+    <script src="../saison_4/saison4jq.js"></script>
+    <script src="../saison_5/saison5jq.js"></script>
+    <script src="../saison_6/saison6jq.js"></script>
+    <script src="../saison_7/saison7jq.js"></script>
+    <script src="../saison_8/saison8jq.js"></script>
+    <script src="../saison_9/saison9jq.js"></script>
+    <script src="../saison_10/saison10jq.js"></script>
+   
 
 
 
@@ -88,15 +96,18 @@
             </div>
 
              <div id ="showcodebloc">
-                <a class="nes-btn" href="#">Afficher code</a>
+                <a class="nes-btn" href="#">Choisir un starter pour afficher son code correspondant</a>
                 <div id="buttonshow">
-                    
-                    
+                    <i class="nes-bulbasaur whiteBackground" type="button" onclick="displayblockshowphp()"  style="background-color : transparent"></i>
+                    <i class="nes-charmander" onclick="displayblockshowjs()"></i>
+                    <i class="nes-squirtle whiteBackground" onclick="displayblockshowjquery()" style="background-color : transparent"></i>
+                    <!-- 
                     <button type="button" class="nes-btn is-primary" onclick="displayblockshowphp()">PHP</button>                   
 
                     <button type="button" class="nes-btn is-warning" onclick="displayblockshowjs()">JS</button>
 
                     <button type="button" class="nes-btn is-success" onclick="displayblockshowjquery()">JQUERRY</button>
+                    -->
                 </div>
                 <div id="showcode">
                     <div id="showJS">
@@ -115,7 +126,7 @@
 
 
             <div id="execution">
-                <a class="nes-btn" href="#">Tester le code</a>
+                <a class="nes-btn" href="#" >Tester le code</a>
               
 
             <div id="contenue">
@@ -126,7 +137,7 @@
 
                 </div>
                      <div id="php">
-                      <?= $formulaire ?> 
+                      
                      </div>
                 </div>
             </div>

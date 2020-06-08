@@ -54,6 +54,7 @@ ob_start();
 </div>
 
   <input  onclick="exo48()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo48jq()" value="Envoyer" class="nes-btn is-error"></input>
 </form>
 </div>
 <br>
@@ -61,7 +62,12 @@ ob_start();
       <i class="nes-bcrikko"></i>
       <!-- Balloon -->
       <div id ="AJS48" class="nes-balloon from-left">
-        
+      <?php
+      if (isset($control))
+        {
+         echo $control;
+        }
+        ?>
       </div>
     </section>
 
@@ -70,23 +76,6 @@ ob_start();
 $JS = ob_get_clean();
 
 ob_start();
-?>
-<p>Entrez une date valide </p>
-<form method="POST" action="exo48.php">
-
-
-    <label>Entrer un jour  </label>
-    <input type="text" name="jour">
-
-    <label>Entrer un mois </label>
-    <input type="text" name="mois">
-
-    <label>Entrer une année  </label>
-    <input type="text" name="annee">
-
-    <input type="submit" value="valider">
-
-    <?php
 
 if (isset($_POST["jour"]) && isset($_POST["mois"]) && isset($_POST["annee"]))
 {

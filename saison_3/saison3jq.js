@@ -51,7 +51,7 @@ function exo33jq()
 function exo34jq()
 {
 
-
+alert("test");
     let nbr = $("#FJS334").val()
 
     if (nbr > 0)
@@ -68,7 +68,7 @@ function exo34jq()
 
 }
 
-function exo35()
+function exo35jq()
 {
 
     var nbr1 = $("FJS3351").val()

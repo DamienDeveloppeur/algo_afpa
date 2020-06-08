@@ -33,7 +33,7 @@ $pseudocode = ob_get_clean();
 
 ob_start();
 ?>
-<form>
+<form method="POST" action="exo41.php"> 
 <div style="background-color:#212529; padding: 1rem;" class="nes-field is-inline">
 <label for="dark_field" style="color:#fff;">Entrez une valeur pour Tutu  </label>
   <input type="text" id="FJS411" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
@@ -49,7 +49,9 @@ ob_start();
   <input type="text" id="FJS413" class="nes-input is-dark"  name="PAHT"/> <br><br><br>
 </div>
 
-  <input  onclick="exo41()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo41()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo41jq()" value="Exe jquery" class="nes-btn is-error"></input>
+  <input  type="submit" value="Exe PHP" class="nes-btn is-error"></input>
 </form>
 
 <br>
@@ -57,38 +59,34 @@ ob_start();
       <i class="nes-bcrikko"></i>
       <!-- Balloon -->
       <div id ="AJS41" class="nes-balloon from-left">
-        
+        <?php
+        if (isset($control))
+        {
+
+         
+           echo $control;
+         
+        }
+        ?>
       </div>
     </section>
 <?php
 $JS = ob_get_clean();
 ob_start();
 
-?>
-
-<p>Veuillez entrer un chiffre entre 1 et 3 </p>
- 
-
-        
-          <form method="POST" action="exo41.php">  
-            <label>Votre message</label>
-            <input type="number" name="nbr"/>
-            <input type="submit" value="Envoyer"/> 
-    </form>
-    
-    <?php
     if (isset($_POST["nbr"]))
     {
 
     
         if ($_POST["nbr"] < 1 || $_POST["nbr"] > 3)
         {
-            echo "not good";
+          $control = "not good";
             
         }
         else 
         {
-            echo "Bravo !";
+          $control = "Bravo !";
+             
         }
 }
 $formulaire = ob_get_clean();

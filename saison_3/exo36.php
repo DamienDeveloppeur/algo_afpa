@@ -27,7 +27,8 @@ ob_start();
 </div>
 
 
-  <input  onclick="exo36()" value="Envoyer" class="nes-btn is-error"></input>
+  <input  onclick="exo36()" value="Exe javascript" class="nes-btn is-error"></input>
+  <input  onclick="exo36jq()" value="Exe jquery" class="nes-btn is-error"></input>
 </form>
 </div>
 <br>

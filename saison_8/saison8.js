@@ -219,7 +219,7 @@ function uploadDamier()
     var aDamier = [];
     //var startLigneFlex = "<div class=\"flexligne\">";
     //var endLigneFlex = "</div>";
-    for (i = 0; i < 10; i++)
+    for (i = 1; i < 11; i++)
     {
         aDamier[i] = [];
 
@@ -227,10 +227,10 @@ function uploadDamier()
         for(m = 0; m < 10; m++)
         {           
          //SI l'INDICE EST PAIR
-                if (i%2 == 0)
+                if (i%2 != 0)
                 {
                     //INDICE 0 || 2
-                    if (i < 4)
+                    if (i < 5)
                     {
                         if (m == 0)
                         {
@@ -253,7 +253,7 @@ function uploadDamier()
                     }
               
                     // INDICE 4 || 6 || 8
-                    else if (i == 4)
+                    else if (i == 5)
                     {
                         // m = 0
                         if (m == 0)
@@ -311,7 +311,7 @@ function uploadDamier()
                 else 
                 {
                     // INDICE 5 || 7 || 9
-                    if (i > 5)
+                    if (i > 6)
                     {
 
                         if (m == 0)
@@ -332,7 +332,7 @@ function uploadDamier()
                             solution +=   " <div class=\"caseRouge\" id=\"" +i+m+"\" >" +i+m+"</div> </div>";
                         }
                     }
-                    else if (i == 3 || i == 1)
+                    else if (i == 4 || i == 2)
                     {
                         // INDICE => 1 || 3 || 5
                         if (m == 0)
@@ -388,18 +388,44 @@ document.getElementById("AJS87").innerHTML = solution;
 
 }
 
+var test3 = 0;
+function deplacement(x,y)
+{
+   var X = "";
+    X = X + x;
+
+   var Y = "";
+    Y = Y + y;
+
+    test3 = X + Y;
+    
+    var idPiece = document.getElementById(test3);
+
+    var caseNoir = document.querySelectorAll(".caseNoir, .nes-bulbasaur, .nes-squirtle, .tortank, .florizare");
+
+  for (var element of caseNoir) 
+   {
+    element.style.border = "none";
+    
+    }
+
+    idPiece.style.border = "2px solid green";
+
+    return callback (test3);
+}
+
 
 var iCompteurTPDAME = 4;
 function deplacementFinal()
 {
 
-    var coordonneesInitialeBrut = document.getElementById("FJS871").value; 
-
-    var coordonneesInitialeBrutInt = +document.getElementById("FJS871").value; 
+    //var coordonneesInitialeBrut = document.getElementById("FJS871").value; 
+    var test4 = parseInt(test3);
+    var coordonneesInitialeBrutInt = test4; 
 
     var coordonneesDestinationBrut = +document.getElementById("FJS872").value; 
 
-    var IDpiece = document.getElementById(coordonneesInitialeBrut);
+    var IDpiece = document.getElementById(test3);
 
     // DEPLACEMENT PIECE
         var coordonneesPotentiellesp9 = document.getElementById(coordonneesInitialeBrutInt + 9);
@@ -420,18 +446,12 @@ function deplacementFinal()
    
     var coordonneesPotentiellesMANGEAGEm18 = document.getElementById(coordonneesInitialeBrutInt - 18);
 
-// CASE POTENTIELLE SPECIALES
-casepromB1 = document.getElementById("01");
-casepromB2 = document.getElementById("03");
-casepromB3 = document.getElementById("05");
-casepromB4 = document.getElementById("07");
-casepromB5 = document.getElementById("09");
     // CASE PROMOTION DAME
 
 
     if (iCompteurTPDAME%2 != 0)
     {
-    alert("Au tour de carapuce");
+   
     if (IDpiece.classList == "nes-squirtle")
     {
        
@@ -447,7 +467,7 @@ casepromB5 = document.getElementById("09");
             IDpiece.classList = "caseNoir";
             promotion(coordonneesPotentiellesp9);
            }
-           if ((coordonneesPotentiellesp9.classList == "nes-bulbasaur" || coordonneesPotentiellesp9.classList == "nes-kirby"  )&& (coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir"))
+           if ((coordonneesPotentiellesp9.classList == "nes-bulbasaur" || coordonneesPotentiellesp9.classList == "florizare"  )&& (coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir"))
            {
             iCompteurTPDAME++;
             alert("eat bulbi");
@@ -468,7 +488,7 @@ casepromB5 = document.getElementById("09");
             IDpiece.classList = "caseNoir";
             promotion(coordonneesPotentiellesp11);
            }
-           if ((coordonneesPotentiellesp11.classList == "nes-bulbasaur" || coordonneesPotentiellesp11.classList == "nes-kirby" ) && (coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir") )
+           if ((coordonneesPotentiellesp11.classList == "nes-bulbasaur" || coordonneesPotentiellesp11.classList == "florizare" ) && (coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir") )
            {
             iCompteurTPDAME++;
             alert("eat bulbi");
@@ -480,7 +500,7 @@ casepromB5 = document.getElementById("09");
        }
        if (coordonneesDestinationBrut == 2)
        {
-            if ( (coordonneesPotentiellesm11.classList == "nes-bulbasaur" || coordonneesPotentiellesm11.classList == "nes-kirby"  )&& coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")
+            if ( (coordonneesPotentiellesm11.classList == "nes-bulbasaur" || coordonneesPotentiellesm11.classList == "florizare"  )&& coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")
             {
                 iCompteurTPDAME++;
                 coordonneesPotentiellesm11.classList = "caseNoir";
@@ -490,7 +510,7 @@ casepromB5 = document.getElementById("09");
        }
        if (coordonneesDestinationBrut == 3)
        {
-            if ( (coordonneesPotentiellesm9.classList == "nes-bulbasaur" || coordonneesPotentiellesm9.classList == "nes-kirby"  ) && coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir")
+            if ( (coordonneesPotentiellesm9.classList == "nes-bulbasaur" || coordonneesPotentiellesm9.classList == "florizare"  ) && coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir")
             {
                 iCompteurTPDAME++;
                 coordonneesPotentiellesm9.classList = "caseNoir";
@@ -501,7 +521,7 @@ casepromB5 = document.getElementById("09");
 
     }
     // DAME CARAPUCE
-        if (IDpiece.classList == "nes-pokeball")
+        if (IDpiece.classList == "tortank")
         {
             if (coordonneesDestinationBrut == 0)
             {
@@ -509,16 +529,16 @@ casepromB5 = document.getElementById("09");
                 if (coordonneesPotentiellesp9.classList == "caseNoir")
                 {
                     iCompteurTPDAME++;
-                 coordonneesPotentiellesp9.classList = "nes-pokeball";
+                 coordonneesPotentiellesp9.classList = "tortank";
                  IDpiece.classList = "caseNoir";
                  
                 }
-                if ((coordonneesPotentiellesp9.classList == "nes-bulbasaur" || coordonneesPotentiellesp9.classList == "nes-kirby"  ) && (coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir"))
+                if ((coordonneesPotentiellesp9.classList == "nes-bulbasaur" || coordonneesPotentiellesp9.classList == "florizare"  ) && (coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir"))
                 {
                     iCompteurTPDAME++;
                  alert("eat bulbi");
                  coordonneesPotentiellesp9.classList = "caseNoir";
-                 coordonneesPotentiellesMANGEAGEp18.classList = "nes-pokeball";
+                 coordonneesPotentiellesMANGEAGEp18.classList = "tortank";
                  IDpiece.classList = "caseNoir"
                  
                 }
@@ -530,16 +550,16 @@ casepromB5 = document.getElementById("09");
                 if (coordonneesPotentiellesp11.classList == "caseNoir")
                 {
                     iCompteurTPDAME++;
-                 coordonneesPotentiellesp11.classList = "nes-pokeball";
+                 coordonneesPotentiellesp11.classList = "tortank";
                  IDpiece.classList = "caseNoir";
                  
                 }
-                if ((coordonneesPotentiellesp11.classList == "nes-bulbasaur" || coordonneesPotentiellesp11.classList == "nes-kirby"  ) && (coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir") )
+                if ((coordonneesPotentiellesp11.classList == "nes-bulbasaur" || coordonneesPotentiellesp11.classList == "florizare"  ) && (coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir") )
                 {
                     iCompteurTPDAME++;
                  alert("eat bulbi");
                  coordonneesPotentiellesp11.classList = "caseNoir";
-                 coordonneesPotentiellesMANGEAGEp22.classList = "nes-pokeball";
+                 coordonneesPotentiellesMANGEAGEp22.classList = "tortank";
                  IDpiece.classList = "caseNoir";
                 
                 }
@@ -549,15 +569,15 @@ casepromB5 = document.getElementById("09");
                 if (coordonneesPotentiellesm11.classList == "caseNoir")
                 {
                     iCompteurTPDAME++;
-                 coordonneesPotentiellesm11.classList = "nes-pokeball";
+                 coordonneesPotentiellesm11.classList = "tortank";
                  IDpiece.classList = "caseNoir";
                  
                 }
-                 if ( (coordonneesPotentiellesm11.classList == "nes-bulbasaur" || coordonneesPotentiellesm11.classList == "nes-kirby"  ) && coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")
+                 if ( (coordonneesPotentiellesm11.classList == "nes-bulbasaur" || coordonneesPotentiellesm11.classList == "florizare"  ) && coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")
                  {
                     iCompteurTPDAME++;
                      coordonneesPotentiellesm11.classList = "caseNoir";
-                     coordonneesPotentiellesMANGEAGEm22.classList = "nes-pokeball";
+                     coordonneesPotentiellesMANGEAGEm22.classList = "tortank";
                      IDpiece.classList = "caseNoir"
                  }
             }
@@ -566,15 +586,15 @@ casepromB5 = document.getElementById("09");
                 if (coordonneesPotentiellesm9.classList == "caseNoir")
                 {
                     iCompteurTPDAME++;
-                 coordonneesPotentiellesm9.classList = "nes-pokeball";
+                 coordonneesPotentiellesm9.classList = "tortank";
                  IDpiece.classList = "caseNoir";
                  
                 }
-                 if ( (coordonneesPotentiellesm9.classList == "nes-bulbasaur" || coordonneesPotentiellesm9.classList == "nes-kirby"  ) && coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir")
+                 if ( (coordonneesPotentiellesm9.classList == "nes-bulbasaur" || coordonneesPotentiellesm9.classList == "florizare"  ) && coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir")
                  {
                     iCompteurTPDAME++;
                      coordonneesPotentiellesm9.classList = "caseNoir";
-                     coordonneesPotentiellesMANGEAGEm18.classList = "nes-pokeball";
+                     coordonneesPotentiellesMANGEAGEm18.classList = "tortank";
                      IDpiece.classList = "caseNoir"
                  }
             }
@@ -582,30 +602,23 @@ casepromB5 = document.getElementById("09");
     }
     if (iCompteurTPDAME%2 == 0)
     {
-    alert("Au tour de bulbizar");            
+              
 
         if (IDpiece.classList == "nes-bulbasaur")
             {
-
-
-             
-
                 // HAUT GAUCHE
                 if (coordonneesDestinationBrut == 0)
                 {
-                
-                 
-
                     if (coordonneesPotentiellesm11.classList == "caseNoir" )
                     {
-                       
+                      
                         iCompteurTPDAME++;
                         coordonneesPotentiellesm11.classList = "nes-bulbasaur";
                     IDpiece.classList = "caseNoir";
                     promotion(coordonneesPotentiellesm11);
                     }
 
-                    if ((coordonneesPotentiellesm11.classList == "nes-squirtle" || coordonneesPotentiellesm11.classList == "nes-pokeball")  && (coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")  )
+                    if ((coordonneesPotentiellesm11.classList == "nes-squirtle" || coordonneesPotentiellesm11.classList == "tortank")  && (coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")  )
                     {
                         iCompteurTPDAME++;
                         coordonneesPotentiellesm11.classList = "caseNoir";
@@ -627,7 +640,7 @@ casepromB5 = document.getElementById("09");
                         IDpiece.classList = "caseNoir";
                    promotion(coordonneesPotentiellesm9);
                     }
-                    if ((coordonneesPotentiellesm9.classList == "nes-squirtle" || coordonneesPotentiellesm9.classList == "nes-pokeball") && (coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir") )
+                    if ((coordonneesPotentiellesm9.classList == "nes-squirtle" || coordonneesPotentiellesm9.classList == "tortank") && (coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir") )
                     {
                         
                         iCompteurTPDAME++;
@@ -642,7 +655,7 @@ casepromB5 = document.getElementById("09");
                 }
                 if (coordonneesDestinationBrut == 2)
                 {
-                    if ((coordonneesPotentiellesp9.classList == "nes-squirtle" || coordonneesPotentiellesp9.classList == "nes-pokeball") && coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir")
+                    if ((coordonneesPotentiellesp9.classList == "nes-squirtle" || coordonneesPotentiellesp9.classList == "tortank") && coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
                         coordonneesPotentiellesp9.classList = "caseNoir";
@@ -652,7 +665,7 @@ casepromB5 = document.getElementById("09");
                 }
                 if (coordonneesDestinationBrut == 3)
                 {
-                    if ((coordonneesPotentiellesp11.classList == "nes-squirtle" || coordonneesPotentiellesp11.classList == "nes-pokeball") && coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir")
+                    if ((coordonneesPotentiellesp11.classList == "nes-squirtle" || coordonneesPotentiellesp11.classList == "tortank") && coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
                         coordonneesPotentiellesp11.classList = "caseNoir";
@@ -664,7 +677,7 @@ casepromB5 = document.getElementById("09");
         
             }
 
-            if (IDpiece.classList == "nes-kirby")
+            if (IDpiece.classList == "florizare")
             {
                
                 if (coordonneesDestinationBrut == 0)
@@ -673,17 +686,17 @@ casepromB5 = document.getElementById("09");
                     if (coordonneesPotentiellesm11.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
-                        coordonneesPotentiellesm11.classList = "nes-kirby";
+                        coordonneesPotentiellesm11.classList = "florizare";
                     IDpiece.classList = "caseNoir";
                    
                     }
-                    if ((coordonneesPotentiellesm11.classList == "nes-squirtle" || coordonneesPotentiellesm11.classList == "nes-pokeball") && (coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")  )
+                    if ((coordonneesPotentiellesm11.classList == "nes-squirtle" || coordonneesPotentiellesm11.classList == "tortank") && (coordonneesPotentiellesMANGEAGEm22.classList == "caseNoir")  )
                     {
                         iCompteurTPDAME++;
                         coordonneesPotentiellesm11.classList = "caseNoir";
                     
                         coordonneesPotentiellesp9.classList = "caseNoir";
-                    coordonneesPotentiellesMANGEAGEm22.classList = "nes-kirby";
+                    coordonneesPotentiellesMANGEAGEm22.classList = "florizare";
                     IDpiece.classList = "caseNoir";
                    
                     }
@@ -694,18 +707,18 @@ casepromB5 = document.getElementById("09");
                     if (coordonneesPotentiellesm9.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
-                        coordonneesPotentiellesm9.classList = "nes-kirby";
+                        coordonneesPotentiellesm9.classList = "florizare";
                     IDpiece.classList = "caseNoir";
                    
                     }
-                    if ((coordonneesPotentiellesm9.classList == "nes-squirtle" || coordonneesPotentiellesm9.classList == "nes-pokeball") && (coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir") )
+                    if ((coordonneesPotentiellesm9.classList == "nes-squirtle" || coordonneesPotentiellesm9.classList == "tortank") && (coordonneesPotentiellesMANGEAGEm18.classList == "caseNoir") )
                     {
                         iCompteurTPDAME++;
                         alert("eat carapuce");
                         coordonneesPotentiellesm9.classList = "caseNoir";
                     
                         coordonneesPotentiellesp11.classList = "caseNoir";
-                    coordonneesPotentiellesMANGEAGEm18.classList = "nes-kirby";
+                    coordonneesPotentiellesMANGEAGEm18.classList = "florizare";
                     IDpiece.classList = "caseNoir";
                    
                     }
@@ -715,15 +728,15 @@ casepromB5 = document.getElementById("09");
                     if (coordonneesPotentiellesp9.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
-                        coordonneesPotentiellesp9.classList = "nes-kirby";
+                        coordonneesPotentiellesp9.classList = "florizare";
                     IDpiece.classList = "caseNoir";
                    
                     }
-                    if ( (coordonneesPotentiellesp9.classList == "nes-squirtle" || coordonneesPotentiellesp9.classList == "nes-pokeball") && coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir")
+                    if ( (coordonneesPotentiellesp9.classList == "nes-squirtle" || coordonneesPotentiellesp9.classList == "tortank") && coordonneesPotentiellesMANGEAGEp18.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
                         coordonneesPotentiellesp9.classList = "caseNoir";
-                        coordonneesPotentiellesMANGEAGEp18.classList = "nes-kirby";
+                        coordonneesPotentiellesMANGEAGEp18.classList = "florizare";
                         IDpiece.classList = "caseNoir"
                     }
                 }
@@ -732,15 +745,15 @@ casepromB5 = document.getElementById("09");
                     if (coordonneesPotentiellesp11.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
-                        coordonneesPotentiellesp11.classList = "nes-kirby";
+                        coordonneesPotentiellesp11.classList = "florizare";
                     IDpiece.classList = "caseNoir";
                    
                     }
-                    if ( (coordonneesPotentiellesp11.classList == "nes-squirtle" || coordonneesPotentiellesp11.classList == "nes-pokeball") && coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir")
+                    if ( (coordonneesPotentiellesp11.classList == "nes-squirtle" || coordonneesPotentiellesp11.classList == "tortank") && coordonneesPotentiellesMANGEAGEp22.classList == "caseNoir")
                     {
                         iCompteurTPDAME++;
                         coordonneesPotentiellesp11.classList = "caseNoir";
-                        coordonneesPotentiellesMANGEAGEp22.classList = "nes-kirby";
+                        coordonneesPotentiellesMANGEAGEp22.classList = "florizare";
                         IDpiece.classList = "caseNoir"
                     }
                 }
@@ -758,27 +771,27 @@ casepromB5 = document.getElementById("09");
 
 function promotion(coordonnees)
 {
-    var casePromoC1 = document.getElementById("90");
-    var casePromoC2 = document.getElementById("92");
-    var casePromoC3 = document.getElementById("94");
-    var casePromoC4 = document.getElementById("96");
-    var casePromoC5 = document.getElementById("98");
+    var casePromoC1 = document.getElementById("100");
+    var casePromoC2 = document.getElementById("102");
+    var casePromoC3 = document.getElementById("104");
+    var casePromoC4 = document.getElementById("106");
+    var casePromoC5 = document.getElementById("108");
   
-    var casePromoB1 = document.getElementById("01");
-    var casePromoB2 = document.getElementById("03");
-    var casePromoB3 = document.getElementById("05");
-    var casePromoB4 = document.getElementById("07");
-    var casePromoB5 = document.getElementById("09");
+    var casePromoB1 = document.getElementById("11");
+    var casePromoB2 = document.getElementById("13");
+    var casePromoB3 = document.getElementById("15");
+    var casePromoB4 = document.getElementById("17");
+    var casePromoB5 = document.getElementById("19");
 
     if(coordonnees == casePromoC1|| coordonnees == casePromoC2 || coordonnees == casePromoC3 ||coordonnees == casePromoC4 || coordonnees == casePromoC5 )
     {
         alert("test");
-        coordonnees.classList = "nes-pokeball";
+        coordonnees.classList = "tortank";
     }
     else if(coordonnees == casePromoB1 || coordonnees == casePromoB2 ||coordonnees == casePromoB3 ||coordonnees == casePromoB4 ||coordonnees == casePromoB5 )
     {
         alert("test");
-        coordonnees.classList = "nes-kirby";
+        coordonnees.classList = "florizare";
     }
 
 }

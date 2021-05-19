@@ -1,3 +1,10 @@
+/*
+function rotation(id_select)
+{
+    
+	document.getElementById(id_select).rotate({});
+}
+*/
 // BOUTONS DISPLAY EXE
 /*
 function displayblockphp()
@@ -144,35 +151,53 @@ function displaysommePayee()
 
 
 /* COURS ET TESTS */
-function testexe()
-{
-    var p = document.getElementsByTagName('p')[3]
 
-    var rougit = function()
-    {
-        p.classList.toggle('blue')
-    }
-
-    p.addEventListener('click', rougit )
-
-        
   
-}
-
-function testexe1()
+var ps = document.querySelectorAll('p')
+for (i = 0; i < ps.length; i++)
 {
-   var p = document.querySelector('.enonce')
-   for (var i = 0; i <p.clientHeight; i++)
-   {
-       var ps = p[i]
-   }
-    window.setInterval(function()
-    {
-       p.classList.toggle('blue')
-    },1000)
-    
-
+  var p = ps[i]
+  var rougit = function()
+  {
+      
+      this.classList.toggle('black')
+  }
+  p.addEventListener('click', rougit)
 }
+
+// POUR CONFIRMATION CLICK LIEN
+
+var liens = document.querySelectorAll('.external')
+
+for (i = 0; i< liens.length;i++)
+{
+var lien = liens[i]
+
+lien.addEventListener('click', function(event) 
+{
+
+  var reponse = window.confirm('je test')
+  if (reponse === false)
+  {
+    event.preventDefault()
+  }
+}
+
+)}
+
+// KEYDOWN pour pouvoir entrer que des caractéres précis 
+/* document.querySelector('#a').addEventListener('keydown', function(e)
+{
+    var lettre = String.fromCharCode(e.keyCode)
+    if(lettre != "A")
+    {
+        e.preventDefault()
+    }
+}
+    
+    
+) */
+
 
 function test()
 {

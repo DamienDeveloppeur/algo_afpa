@@ -52,10 +52,6 @@ ob_start();
 
 
 <form method="POST" action="exo86.php">
-<div class="nes-field is-inline" id="FJS871G" style="visibility: visible">
-<label for="dark_field" style="color:#fff;">Entrer les coordonnées de la piece sélectionné </label>
-  <input type="number" id="FJS871" class="nes-input is-dark"  name="nbr1"/> 
-  </div>
 
   <div style="background-color:#212529; padding: 1rem 1.2rem 1rem 1rem;width:calc(100% + 8px)">
   <label for="dark_select" style="color:#fff">Choississez un deplacement </label>
